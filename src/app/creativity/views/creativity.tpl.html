@@ -1,0 +1,597 @@
+<style shim-shadow>
+    .search-bar {
+        height: 120px;
+        line-height: 120px;
+        padding: 0 20px;
+        background-color: #1D70A3;
+    }
+    .search-content {
+        position: relative;
+    }
+    .search-bar input,.search-bar select {
+        border: 0 none;
+    }
+    .search-content .search-input {
+        line-height: normal;
+        height: 44px;
+        color: #777;
+        width: 40%;
+        border-radius: 6px 0 0 6px;
+        padding-left: 52px;
+        border-right: 1px solid rgba(0,0,0,0.1);
+        float: left;
+    }
+    .search-inputs-wrap:before {
+        position: absolute;
+        content: "\f040";
+        font-family: 'FontAwesome';
+        top: 10px;
+        left: 20px;
+        color: #919191;
+        z-index: 1;
+    }
+    .search-inputs-wrap {
+        display: inline-block;
+        width: 100%;
+        position: relative;
+        font-size: 22px;
+        line-height: 24px;
+        vertical-align: middle;
+    }
+    .select-search-wrap {
+        display: inline-block;
+        height: 44px;
+        line-height: 44px;
+        position: relative;
+        width: 30%;
+        color: #777;
+        border-right: 1px solid rgba(0,0,0,0.1);
+        float: left;
+        background: #FFFFFF;
+    }
+    .select-search-wrap button.select-toggle {
+        color: #777;
+        height: 44px;
+        border: none;
+        top: -2px;
+        padding: 6px 12px;
+        outline: none;
+        font-size: 22px;
+    }
+    .location-search,.location-search button.select-toggle {
+        border-radius: 0 6px 6px 0;
+    }
+    .searchsubmit-wrapper {
+        text-align: center;
+    }
+    .submit-main-button {
+        width: 100%;
+        height: 46px;
+        border-radius: 6px;
+        font-size: 20px;
+    }
+    .btn.select-toggle {
+        margin: 0;
+    }
+    .ct-catalog-card-header {
+        padding: 10px 30px;
+        border-bottom: 1px solid #e5e5e5;
+        height: 74px;
+    }
+    .ct-catalog-card-title {
+        position: relative;
+    }
+    .ct-catalog-card-title:before {
+        content: " ";
+        display: inline-block;
+        position: absolute;
+        left: -10px;
+        top: -1px;
+        bottom: -1px;
+        width: 5px;
+        background-color: #19A9E5;
+    }
+    .ct-catalog-card-body {
+        padding: 20px;
+        height: calc(100% - 74px);
+        display: inline-block;
+        width: 100%;
+    }
+    .ct-catalogs {
+        width: calc(100% - 400px);
+    }
+    .ct-catalogs-group {
+        margin: 0 0 20px;
+    }
+    ul.ct-first-catalogs,ul.ct-second-catalogs {
+        list-style: none;
+        padding: 0;
+        overflow: hidden;
+    }
+    ul.ct-first-catalogs > li {
+        margin-bottom: 5px;
+        display: inline-block;
+        width: 100%;
+    }
+    ul.ct-second-catalogs > li {
+        white-space: nowrap;
+    }
+    ul.ct-first-catalogs > li > a,ul.ct-second-catalogs > li > a {
+        float: left;
+        margin-right: 20px;
+        color: #222222;
+        font-size: 16px;
+        display: inline-block;
+        width: 80px;
+        text-align: center;
+        overflow: hidden;
+    }
+    ul.ct-first-catalogs > li > a {
+        color: #000000;
+        font-weight: bolder;
+    }
+    ul.ct-second-catalogs > li{
+        float: left;
+    }
+    .ct-ads {
+        width: 400px;
+        height: 100%;
+        border-left: 1px solid #e5e5e5;
+        padding: 0 20px;
+    }
+    .ct-ads > [class^=col-] {
+        padding: 10px;
+        height: 50%;
+    }
+    .ct-ad {
+        height: 100%;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        cursor: pointer;
+        border: 1px solid #e5e5e5;
+    }
+    .ct-catalog-card-brand {
+        background-color: #e5e5e5;
+    }
+    .ct-catalog-card-brand .brand-content {
+        margin: 30% 0 15%;
+    }
+    .ct-catalog-card-brand .brand-image {
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        width: 150px;
+        height: 150px;
+        margin: 0 auto 20px;
+    }
+    .ct-catalog-card-brand .brand-text {
+        text-align: left;
+        padding: 0 20px;
+        color: #444444;
+    }
+    .ct-catalog-card-brand .brand-title {
+        color: #19A9E5;
+    }
+    .ct-catalog-card-brand .brand-link {
+        color: #9A9A9A;
+    }
+</style>
+<ct-navbar shadow="2"></ct-navbar>
+<div class="animated fadeInUpLight">
+    <div class="search-bar">
+        <div class="col-md-9 search-content">
+            <div class="search-inputs-wrap">
+                <input type="text" class="search-input" id="searchInputText" placeholder="关键字" />
+                <div class="select-search-wrap category-search">
+                    <select name="staticSelectModel" nq-select qo-placeholder="类 别"
+                            qo-filterable="false" ng-model="staticSelectModel"
+                            qo-clear-icon="<span class='clear-icon fa fa-times red'></span>">
+                        <option>找项目</option>
+                        <option>找接包方</option>
+                    </select>
+                </div>
+                <div class="select-search-wrap location-search">
+                    <select name="staticSelectModel" nq-select qo-placeholder="区 域"
+                            qo-filter-text="按区域搜索..." qo-no-match="无查询结果..."
+                            ng-model="staticSelectModel"
+                            qo-clear-icon="<span class='clear-icon fa fa-times red'></span>">
+                        <option>北京</option>
+                        <option>上海</option>
+                        <option>天津</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 searchsubmit-wrapper">
+            <button class="btn btn-success submit-main-button">
+                <i class="fa fa-search"></i>
+                搜 索
+            </button>
+        </div>
+    </div>
+    <div style="margin: 50px 20px">
+        <div class="card horizontal-card ct-catalog-card" style="height: 400px;margin-bottom: 50px" ng-repeat="i in [1,2]">
+            <div class="card-brand ct-catalog-card-brand">
+                <div class="brand-content">
+                    <!--<img src="../../../assets/images/demo/icons/Headphone.png">-->
+                    <div class="brand-image" style="background-image: url('../assets/images/demo/icons/Headphone.png')"></div>
+                    <div class="brand-text">
+                        <h2 class="brand-title">找项目</h2>
+                        <p>最好的设计 一个不留</p>
+                        <a ui-sref=".projects" class="brand-link">进入专区
+                        <span class="fa-stack fa-fw orange" style="width: 1em;height: 1em;line-height: 1em">
+                          <i class="fa fa-circle fa-stack-1x"></i>
+                          <i class="fa fa-angle-right fa-stack-1x fa-inverse"></i>
+                        </span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="card-content height-100 bg-white">
+                <div class="ct-catalog-card-header">
+                    <h2 class="ct-catalog-card-title" style="font-size: 30px">找项目<acme-malarkey></acme-malarkey></h2>
+                </div>
+                <div class="ct-catalog-card-body">
+                    <div class="ct-ads pull-right">
+                        <div class="col-md-6">
+                            <div class="ct-ad" style="background-image: url('../assets/images/demo/ads/1.jpg')">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="ct-ad" style="background-image: url('../assets/images/demo/ads/2.jpg')">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="ct-ad" style="background-image: url('../assets/images/demo/ads/3.jpg')">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="ct-ad" style="background-image: url('../assets/images/demo/ads/4.jpg')">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ct-catalogs pull-left">
+                        <div class="ct-catalogs-group">
+                            <ul class="ct-first-catalogs">
+                                <li>
+                                    <a href>Logo</a>
+                                    <ul class="ct-second-catalogs">
+                                        <li>
+                                            <a href>网站Logo</a>
+                                        </li>
+                                        <li>
+                                            <a href>公司Logo</a>
+                                        </li>
+                                        <li>
+                                            <a href>网站Logo</a>
+                                        </li>
+                                        <li>
+                                            <a href>公司Logo</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href>VI</a>
+                                    <ul class="ct-second-catalogs">
+                                        <li>
+                                            <a href>企业VI设计</a>
+                                        </li>
+                                        <li>
+                                            <a href>品牌VI设计</a>
+                                        </li>
+                                        <li>
+                                            <a href>品牌VI设计</a>
+                                        </li>
+                                        <li>
+                                            <a href>企业VI设计</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href>包装</a>
+                                    <ul class="ct-second-catalogs">
+                                        <li>
+                                            <a href>食品包装</a>
+                                        </li>
+                                        <li>
+                                            <a href>化妆品包装</a>
+                                        </li>
+                                        <li>
+                                            <a href>食品包装</a>
+                                        </li>
+                                        <li>
+                                            <a href>化妆品包装</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href>宣传</a>
+                                    <ul class="ct-second-catalogs">
+                                        <li>
+                                            <a href>画册设计</a>
+                                        </li>
+                                        <li>
+                                            <a href>海报设计</a>
+                                        </li>
+                                        <li>
+                                            <a href>画册设计</a>
+                                        </li>
+                                        <li>
+                                            <a href>海报设计</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="ct-catalogs-group">
+                            <ul class="ct-first-catalogs">
+                                <li>
+                                    <a href>广告</a>
+                                    <ul class="ct-second-catalogs">
+                                        <li>
+                                            <a href>广告牌设计</a>
+                                        </li>
+                                        <li>
+                                            <a href>易拉宝设计</a>
+                                        </li>
+                                        <li>
+                                            <a href>广告牌设计</a>
+                                        </li>
+                                        <li>
+                                            <a href>易拉宝设计</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href>卡片</a>
+                                    <ul class="ct-second-catalogs">
+                                        <li>
+                                            <a href>名片设计</a>
+                                        </li>
+                                        <li>
+                                            <a href>请柬设计</a>
+                                        </li>
+                                        <li>
+                                            <a href>名片设计</a>
+                                        </li>
+                                        <li>
+                                            <a href>请柬设计</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href>PPI</a>
+                                    <ul class="ct-second-catalogs">
+                                        <li>
+                                            <a href>传单设计</a>
+                                        </li>
+                                        <li>
+                                            <a href>DM单设计</a>
+                                        </li>
+                                        <li>
+                                            <a href>传单设计</a>
+                                        </li>
+                                        <li>
+                                            <a href>DM单设计</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="ct-catalogs-group">
+                            <ul class="ct-first-catalogs">
+                                <li>
+                                    <a href>推荐</a>
+                                    <ul class="ct-second-catalogs">
+                                        <li>
+                                            <a href>商标注册</a>
+                                        </li>
+                                        <li>
+                                            <a href>商标注册</a>
+                                        </li>
+                                        <li>
+                                            <a href>商标注册</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card horizontal-card ct-catalog-card" style="height: 400px;margin-bottom: 50px">
+            <div class="card-brand ct-catalog-card-brand">
+                <div class="brand-content">
+                    <!--<img src="../../../assets/images/demo/icons/Headphone.png">-->
+                    <div class="brand-image" style="background-image: url('../assets/images/demo/icons/Box-Notes.png')"></div>
+                    <div class="brand-text">
+                        <h2 class="brand-title">找接包方</h2>
+                        <p>最好的设计 一个不留</p>
+                        <a ui-sref=".projects" class="brand-link">进入专区
+                        <span class="fa-stack fa-fw orange" style="width: 1em;height: 1em;line-height: 1em">
+                          <i class="fa fa-circle fa-stack-1x"></i>
+                          <i class="fa fa-angle-right fa-stack-1x fa-inverse"></i>
+                        </span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="card-content height-100 bg-white">
+                <div class="ct-catalog-card-header">
+                    <h2 class="ct-catalog-card-title" style="font-size: 30px">找接包方</h2>
+                </div>
+                <div class="ct-catalog-card-body">
+                    <div class="ct-ads pull-right">
+                        <div class="col-md-6">
+                            <div class="ct-ad" style="background-image: url('../assets/images/demo/ads/1.jpg')">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="ct-ad" style="background-image: url('../assets/images/demo/ads/2.jpg')">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="ct-ad" style="background-image: url('../assets/images/demo/ads/3.jpg')">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="ct-ad" style="background-image: url('../assets/images/demo/ads/4.jpg')">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ct-catalogs pull-left">
+                        <div class="ct-catalogs-group">
+                            <ul class="ct-first-catalogs">
+                                <li>
+                                    <a href>Logo</a>
+                                    <ul class="ct-second-catalogs">
+                                        <li>
+                                            <a href>网站Logo</a>
+                                        </li>
+                                        <li>
+                                            <a href>公司Logo</a>
+                                        </li>
+                                        <li>
+                                            <a href>网站Logo</a>
+                                        </li>
+                                        <li>
+                                            <a href>公司Logo</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href>VI</a>
+                                    <ul class="ct-second-catalogs">
+                                        <li>
+                                            <a href>企业VI设计</a>
+                                        </li>
+                                        <li>
+                                            <a href>品牌VI设计</a>
+                                        </li>
+                                        <li>
+                                            <a href>品牌VI设计</a>
+                                        </li>
+                                        <li>
+                                            <a href>企业VI设计</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href>包装</a>
+                                    <ul class="ct-second-catalogs">
+                                        <li>
+                                            <a href>食品包装</a>
+                                        </li>
+                                        <li>
+                                            <a href>化妆品包装</a>
+                                        </li>
+                                        <li>
+                                            <a href>食品包装</a>
+                                        </li>
+                                        <li>
+                                            <a href>化妆品包装</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href>宣传</a>
+                                    <ul class="ct-second-catalogs">
+                                        <li>
+                                            <a href>画册设计</a>
+                                        </li>
+                                        <li>
+                                            <a href>海报设计</a>
+                                        </li>
+                                        <li>
+                                            <a href>画册设计</a>
+                                        </li>
+                                        <li>
+                                            <a href>海报设计</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="ct-catalogs-group">
+                            <ul class="ct-first-catalogs">
+                                <li>
+                                    <a href>广告</a>
+                                    <ul class="ct-second-catalogs">
+                                        <li>
+                                            <a href>广告牌设计</a>
+                                        </li>
+                                        <li>
+                                            <a href>易拉宝设计</a>
+                                        </li>
+                                        <li>
+                                            <a href>广告牌设计</a>
+                                        </li>
+                                        <li>
+                                            <a href>易拉宝设计</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href>卡片</a>
+                                    <ul class="ct-second-catalogs">
+                                        <li>
+                                            <a href>名片设计</a>
+                                        </li>
+                                        <li>
+                                            <a href>请柬设计</a>
+                                        </li>
+                                        <li>
+                                            <a href>名片设计</a>
+                                        </li>
+                                        <li>
+                                            <a href>请柬设计</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href>PPI</a>
+                                    <ul class="ct-second-catalogs">
+                                        <li>
+                                            <a href>传单设计</a>
+                                        </li>
+                                        <li>
+                                            <a href>DM单设计</a>
+                                        </li>
+                                        <li>
+                                            <a href>传单设计</a>
+                                        </li>
+                                        <li>
+                                            <a href>DM单设计</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="ct-catalogs-group">
+                            <ul class="ct-first-catalogs">
+                                <li>
+                                    <a href>推荐</a>
+                                    <ul class="ct-second-catalogs">
+                                        <li>
+                                            <a href>商标注册</a>
+                                        </li>
+                                        <li>
+                                            <a href>商标注册</a>
+                                        </li>
+                                        <li>
+                                            <a href>商标注册</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<hr />
+<ct-footer></ct-footer>

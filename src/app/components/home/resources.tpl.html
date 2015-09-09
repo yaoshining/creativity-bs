@@ -1,68 +1,92 @@
-<style shim-shadow>
-    .resources-col {
-        height: 100%;
-        padding: 5% 100px;
-        margin: 0;
-    }
-    .resources-col > div[class^=col-] {
-        height: 50%;
-        text-align: center;
-    }
-    .resources-col .resources-item {
-        padding: 0;
-        height: 100%;
-    }
-    .resources-item-bg {
-        height: 100%;
-    }
-    .resources-item > h2 {
-        position: absolute;
-        width: 100%;
-        left: 0;
-        top: calc(40% - 30px);
-        text-align: center;
-        vertical-align: middle;
-        color: #ffffff;
-        cursor: pointer;
-        pointer-events: none;
-    }
-    .resources-col svg {
-        width: 100%;
-        height: 100%;
-        cursor: pointer;
-        transition: all .2s ease;
-    }
-    .resources-col svg:hover {
-        transform: scale(1.1);
-        opacity: .7;
-    }
-</style>
 <div class="slide-container">
-    <div class="row resources-col">
-        <div class="col-md-6" style="text-align: left">
-            <div class="resources-item col-md-6">
-                <div class="resources-item-bg" ng-include="'../assets/images/svg/comment.svg'" style="fill: #1AA9E6;"></div>
-                <h2>材料库</h2>
+    <div id="resourceParallax" parallax-background parallax-ratio="1"></div>
+    <div class="overlay">
+        <div class="resource-cols">
+            <div class="resource-col">
+                <div class="resource-item text-center" squarify="width" ui-sref="home">
+                    <div class="resource-item-text">
+                        <h2>标准件库</h2>
+                        <p>
+                            包含国家标准件规格信息和Proe/e、NX三维模型
+                        </p>
+                    </div>
+                </div>
             </div>
-        </div>
-        <div class="col-md-6" style="text-align: left">
-            <div class="resources-item col-md-6">
-                <div class="resources-item-bg" ng-include="'../assets/images/svg/comment.svg'" style="fill: #0DAD51;"></div>
-                <h2>电子元器件库</h2>
+            <div class="resource-col">
+                <div class="resource-item text-center" squarify="width">
+                    <div class="resource-item-text">
+                        <h2>材料库</h2>
+                        <p>
+                            包含国家标准有色金属、黑色金属和塑料等常用材料
+                        </p>
+                    </div>
+                </div>
             </div>
-        </div>
-        <div class="col-md-6" style="text-align: right">
-            <div class="col-md-6"></div>
-            <div class="resources-item col-md-6">
-                <div class="resources-item-bg" ng-include="'../assets/images/svg/comment.svg'" style="fill: #F6A006;"></div>
-                <h2>材料库</h2>
+            <div class="resource-col">
+                <div class="resource-item text-center" squarify="width">
+                    <div class="resource-item-text">
+                        <h2>元器件库</h2>
+                        <p>
+                            包含33大类，200多小类数十万种常用元器件
+                        </p>
+                    </div>
+                </div>
             </div>
-        </div>
-        <div class="col-md-6" style="text-align: right">
-            <div class="col-md-6"></div>
-            <div class="resources-item col-md-6">
-                <div class="resources-item-bg" ng-include="'../assets/images/svg/comment.svg'" style="fill: #9900FF;"></div>
-                <h2>工业XX库</h2>
+            <div class="resource-col">
+                <div class="resource-item text-center" squarify="width">
+                    <div class="resource-item-text">
+                        <h2>标准规范库</h2>
+                        <p>
+                            设计制造相关的国家及机械行业标准规范
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="resource-col">
+
+            </div>
+            <div class="resource-col">
+
+            </div>
+            <div class="resource-col">
+                <div class="resource-item top text-center" squarify="width">
+                    <div class="resource-item-text">
+                        <h2>刀具库</h2>
+                        <p>
+                            常用机床刀具
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="resource-col">
+                <div class="resource-item top text-center" squarify="width">
+                    <div class="resource-item-text">
+                        <h2>工艺库</h2>
+                        <p>
+                            典型工艺方法、加工工艺参数等
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="resource-col">
+                <div class="resource-item top text-center" squarify="width">
+                    <div class="resource-item-text">
+                        <h2>量具库</h2>
+                        <p>
+                            常用量具、测量仪器
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="resource-col">
+                <div class="resource-item top text-center" squarify="width">
+                    <div class="resource-item-text">
+                        <h2>资源库</h2>
+                        <p>
+                            常用设计、工艺、仿真技术手册和参考资料，以及常用软件
+                        </p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

@@ -2,6 +2,7 @@
 
 var path = require('path');
 var gulp = require('gulp');
+var runSequence = require('run-sequence');
 var conf = require('./conf');
 
 var $ = require('gulp-load-plugins')({
@@ -48,6 +49,7 @@ gulp.task('html', ['inject', 'partials'], function () {
     .pipe(jsFilter.restore())
     .pipe(cssFilter)
     .pipe($.replace('../../bower_components/bootstrap-sass-official/assets/fonts/bootstrap/', '../fonts/'))
+    .pipe($.replace('../../bower_components/font-awesome/fonts', '../fonts/'))
     .pipe($.csso())
     .pipe(cssFilter.restore())
     .pipe(assets.restore())
@@ -68,7 +70,7 @@ gulp.task('html', ['inject', 'partials'], function () {
 // Only applies for fonts from bower dependencies
 // Custom fonts are handled by the "other" task
 gulp.task('fonts', function () {
-  return gulp.src($.mainBowerFiles())
+  return gulp.src(path.join(conf.wiredep.directory+'/**/*.{eot,svg,ttf,woff,woff2}'))
     .pipe($.filter('**/*.{eot,svg,ttf,woff,woff2}'))
     .pipe($.flatten())
     .pipe(gulp.dest(path.join(conf.paths.dist, '/fonts/')));
@@ -92,3 +94,9 @@ gulp.task('clean', function (done) {
 });
 
 gulp.task('build', ['html', 'fonts', 'other']);
+
+gulp.task('build-clean', function(callback) {
+  runSequence('clean',
+      ['html', 'fonts', 'other'],
+      callback);
+});

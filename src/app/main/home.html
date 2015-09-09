@@ -1,0 +1,22 @@
+<div snapscroll fit-window-height snap-index="$root.snapIndex" before-snap="main.beforeScroll(snapIndex)">
+  <section>
+    <div ng-include="'app/components/home/carousel.tpl.html'"></div>
+  </section>
+  <section>
+    <div ng-include="'app/components/home/creativity.tpl.html'"></div>
+  </section>
+  <section>
+    <div ng-include="'app/components/home/collaborate.tpl.html'"></div>
+  </section>
+  <section>
+    <div ng-include="'app/components/home/resources.tpl.html'"></div>
+  </section>
+  <section>
+    <div ng-include="'app/components/home/cnigc.tpl.html'"></div>
+  </section>
+  <section>
+    <div ng-include="'app/components/home/contact.tpl.html'"></div>
+  </section>
+</div>
+<div ui-view></div>
+<ct-navbar type="fixed"></ct-navbar>

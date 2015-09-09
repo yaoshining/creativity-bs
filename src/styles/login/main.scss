@@ -1,11 +1,13 @@
 $fa-font-path: "../../../bower_components/font-awesome/fonts";
+$navbar-cnigc-bg: rgba(0,0,0,.4);
+$navbar-cnigc-color: #ffffff;
 /**
  *  Do not remove this comments bellow. It's the markers used by wiredep to inject
  *  sass dependencies when defined in the bower.json of your dependencies
  */
 // bower:scss
 // endbower
-
+@import "../base/navbar";
 html,body {
   height: 100%;
   padding: 0;
@@ -26,7 +28,18 @@ body {
 body a, body a:hover,body a:focus,body a:active {
   color: #ffffff;
 }
-.logo-text {
+.navbar.navbar-cnigc {
+  background-color: rgba(0,0,0,.4);
+}
+@media (min-width: 768px) {
+  .navbar-nav > li > a {
+    color: #ffffff;
+  }
+}
+.navbar-nav > li:before {
+  bottom: -1px;
+}
+/*.logo-text {
   display: inline-block;
   position: absolute;
   top: 0;
@@ -48,7 +61,7 @@ body a, body a:hover,body a:focus,body a:active {
 .navbar.navbar-cnigc {
   min-height: 60px;
   background-color: rgba(0,0,0,.4);
-  /*box-shadow: 0 0 5px #000;*/
+  /!*box-shadow: 0 0 5px #000;*!/
   border-radius: 0;
   margin-bottom: 0;
   z-index: 100;
@@ -101,7 +114,7 @@ body a, body a:hover,body a:focus,body a:active {
     padding-bottom: 10px;
     margin: 10px 20px 10px 50px;
   }
-}
+}*/
 .cnigc-bg {
   position: absolute;
   width: 100%;

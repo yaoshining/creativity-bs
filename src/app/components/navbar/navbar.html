@@ -1,21 +1,53 @@
-<nav class="navbar navbar-static-top navbar-inverse">
+<nav class="navbar
+    shadow-z-{{vm.shadow}}
+    navbar-{{vm.theme?vm.theme: 'cnigc'}}
+    navbar-{{vm.type?vm.type: 'static'}}-top
+    {{vm.animated !== undefined?'navbar-animated':''}}">
   <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
-      <a class="navbar-brand" href="https://github.com/Swiip/generator-gulp-angular">
-        <span class="glyphicon glyphicon-home"></span> Gulp Angular
+      <button type="button" class="navbar-toggle">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href>
+        <img ng-src="{{vm.logoImg}}" height="52px" />
+        <!--<h3 class="logo-text">
+          中国兵器<br />工业集团<br />
+          <sub class="text-sub">NORINCO GROUP</sub>
+        </h3>-->
       </a>
     </div>
 
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-6">
-      <ul class="nav navbar-nav">
-        <li class="active"><a ng-href="#">Home</a></li>
-        <li><a ng-href="#">About</a></li>
-        <li><a ng-href="#">Contact</a></li>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav navbar-right">
+        <li ui-sref-active-eq="active">
+          <a ui-sref="home">首页</a>
+        </li>
+        <li ui-sref-active="active">
+          <a ui-sref="creativity">创新空间</a>
+        </li>
+        <li ui-sref-active="active">
+          <a ui-sref="collaborate">协作平台</a>
+        </li>
+        <li ui-sref-active="active">
+          <a ui-sref="resources">在线资源</a>
+        </li>
+        <li ui-sref-active="active">
+          <a ui-sref="home.index({index: 'iCnigc'})">兵器专区</a>
+        </li>
+        <li ui-sref-active="active">
+          <a ui-sref="home.index({index: 'iContact'})">联系我们</a>
+        </li>
+        <div style="display: list-item;float: left">
+          <a href="login.html" class="btn btn-success">
+            登录 / 注册
+          </a>
+        </div>
       </ul>
-
-      <ul class="nav navbar-nav navbar-right acme-navbar-text">
-        <li>Application was created {{ vm.relativeDate }}.</li>
-      </ul>
-    </div>
-  </div>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
 </nav>

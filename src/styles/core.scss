@@ -1,6 +1,19 @@
 @import "colors/colors";
-.height-100 {
-  height: 100%;
+@import "base/utils";
+@import "base/navbar";
+@import "base/buttons";
+@import "base/sidebar";
+@import "base/trees";
+@import "base/animations";
+@import "base/home";
+
+@charset "UTF-8";
+[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],
+.ng-cloak,.x-ng-cloak,.ng-hide {
+  display:none !important;
+}
+ng\:form {
+   display:block;
 }
 section .carousel {
   .carousel-control,.carousel-control {
@@ -10,4 +23,86 @@ section .carousel {
 body {
   font-family: '微软雅黑';
   color: #222222;
+  background-color: #ffffff;
+}
+.listbox-panel {
+  border-radius: 0;
+}
+
+.table > thead > tr > th {
+  border-color: #DDD;
+  font-weight: 700;
+  .ebp-icon:first-child {
+    margin-right: 2px;
+  }
+}
+.table > thead > tr {
+  color: #707070;
+  font-weight: 400;
+}
+.table-bordered{
+  & > thead.thin-border-bottom{
+    & > tr > th, & > tr > td {
+      border-bottom-width: 1px;
+    }
+  }
+}
+.table>thead>tr {
+  color: #707070;
+  font-weight: 400;
+  background: #F2F2F2;
+  background-image: -webkit-linear-gradient(top,#f8f8f8 0,#ececec 100%);
+  background-image: -o-linear-gradient(top,#f8f8f8 0,#ececec 100%);
+  background-image: linear-gradient(to bottom,#f8f8f8 0,#ececec 100%);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fff8f8f8', endColorstr='#ffececec', GradientType=0);
+}
+.text-center {
+  text-align: center;
+}
+div[snapscroll] {
+  overflow-y: hidden!important;
+}
+div[snapscroll] > section,div[snapscroll] > div {
+  position: relative;
+}
+//card
+.card {
+  border-radius: 0;
+}
+.vertical-card .card-brand {
+  height: 100px;
+  line-height: 100px;
+}
+.vertical-card .card-content {
+  height: calc(100% - 100px);
+}
+.horizontal-card .card-brand {
+  float: left;
+  width: 200px;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.horizontal-card .card-content {
+  margin-left: 200px;
+  height: 100%;
+}
+.card .card-brand {
+  background: #e5e5e5;
+}
+.card.no-shadow {
+  @include box-shadow(none);
+}
+.card.card-blue {
+  border: 1px solid #4285F4;
+}
+.card-blue .card-brand {
+  background-color: #4285F4;
+  color: #FFF;
+  box-shadow: 0 2px 4px -1px rgba(0,0,0,.14),0 4px 5px 0 rgba(0,0,0,.098),0 1px 10px 0 rgba(0,0,0,.084);
+}
+.panel {
+  border-width: 0;
+  @include box-shadow(0 1px 6px 0 rgba(0,0,0,.12),0 1px 6px 0 rgba(0,0,0,.12));
 }

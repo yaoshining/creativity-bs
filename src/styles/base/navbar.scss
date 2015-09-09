@@ -1,0 +1,144 @@
+$navbar-cnigc-bg: #ffffff !default;
+$navbar-cnigc-color: #222222 !default;
+$navbar-blue-bg: #4285F4 !default;
+$navbar-blue-color: #ffffff !default;
+$navbar-orange-bg: #F15A24 !default;
+$navbar-green-bg: #34A853 !default;
+$navbar-red-bg: #EA4335 !default;
+$navbar-purple-bg: #9B59B6 !default;
+$navbar-yellow-bg: #FBBC05 !default;
+$navbar-yellow-color: #222222 !default;
+$navbar-pink-bg: #E21E79 !default;
+$navbar-dark-transparent-bg: rgba(0,0,0,.7) !default;
+.logo-text {
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  margin: 0;
+  left: 80px;
+  font-size: 16px;
+  color: white;
+  height: 100%;
+}
+.logo-text .text-sub {
+  font-size: 2px;
+  vertical-align: middle;
+  font-weight: normal;
+  bottom: 0;
+}
+.navbar {
+  min-height: 60px;
+  border-radius: 0;
+  margin-bottom: 0;
+  z-index: 100;
+  .navbar-nav > .active > a, .navbar-nav > .active > a:hover, .navbar .navbar-nav > .active > a:focus {
+    background-color: transparent;
+  }
+}
+.navbar.navbar-animated {
+  @include transition(background 2s);
+}
+.navbar.navbar-cnigc {
+  /*box-shadow: 0 0 5px #000;*/
+  background-color: $navbar-cnigc-bg;
+  .navbar-nav > li > a:hover, .navbar-nav > li > a:focus {
+    color: $navbar-cnigc-color;
+  }
+  .navbar-nav > li > a:hover,.navbar-nav > li > a:focus,.navbar-nav > li > a:active,.navbar-nav > li > a.active {
+    background-color: inherit;
+  }
+  .navbar-nav > li > a {
+    color: $navbar-cnigc-color;
+  }
+  .navbar-nav > li:before {
+    background-color: #19A9E5;
+  }
+}
+.navbar.navbar-blue {
+  /*box-shadow: 0 0 5px #000;*/
+  background-color: $navbar-blue-bg;
+  .navbar-nav > li > a:hover, .navbar-nav > li > a:focus {
+    color: $navbar-blue-color;
+  }
+  .navbar-nav > li > a:hover,.navbar-nav > li > a:focus,.navbar-nav > li > a:active,.navbar-nav > li > a.active {
+    background-color: inherit;
+  }
+  .navbar-nav > li > a {
+    color: $navbar-blue-color;
+  }
+}
+.navbar.navbar-orange {
+  background-color: $navbar-orange-bg;
+}
+.navbar.navbar-green {
+  background-color: $navbar-green-bg;
+}
+.navbar.navbar-yellow {
+  background-color: $navbar-yellow-bg;
+  .navbar-nav > li > a:hover, .navbar-nav > li > a:focus {
+    color: $navbar-yellow-color;
+  }
+  .navbar-nav > li > a:hover,.navbar-nav > li > a:focus,.navbar-nav > li > a:active,.navbar-nav > li > a.active {
+    background-color: inherit;
+  }
+  .navbar-nav > li > a {
+    color: $navbar-yellow-color;
+  }
+  .navbar-nav > li:before {
+    background-color: $navbar-yellow-color;
+  }
+}
+.navbar.navbar-pink {
+  background-color: $navbar-pink-bg;
+}
+.navbar.navbar-purple {
+  background-color: $navbar-purple-bg;
+}
+.navbar.navbar-red {
+  background-color: $navbar-red-bg;
+}
+.navbar.navbar-dark-transparent {
+  background-color: $navbar-dark-transparent-bg;
+}
+.navbar-brand {
+  height: 60px;
+  & > img {
+    position: relative;
+    top: 50%;
+    margin-top: -26px;
+  }
+}
+.navbar-nav > li:before {
+  display: inline-block;
+  width: 100%;
+  height: 0;
+  background-color: #ffffff;
+  position: absolute;
+  bottom: 0;
+  content: " ";
+  transition: all .2s ease-in-out;
+}
+.navbar-nav > li {
+  position: relative;
+}
+//.navbar-nav > li.active > a {
+//  color: #19A9E5;
+//}
+.navbar-nav > li:hover:before,.navbar-nav > li:focus:before,.navbar-nav > li:active:before,.navbar-nav > li.active:before {
+  height: 3px;
+}
+.navbar-nav > li > a.btn-success:active,.navbar-nav > li > a.btn-success:hover,.navbar-nav > li > a.btn-success:focus {
+  background-color: #449d44;
+}
+@media (min-width: 768px) {
+  .navbar-nav > li > a {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    color: $navbar-cnigc-color;
+  }
+  .navbar-nav > div > a.btn {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin: 10px 20px 10px 50px;
+  }
+}

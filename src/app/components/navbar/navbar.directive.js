@@ -6,7 +6,11 @@ class NavbarDirective {
       restrict: 'E',
       templateUrl: 'app/components/navbar/navbar.html',
       scope: {
-          creationDate: '='
+          creationDate: '=',
+          type: '@',
+          theme: '@',
+          animated: '@',
+          shadow: '='
       },
       controller: NavbarController,
       controllerAs: 'vm',
@@ -18,11 +22,31 @@ class NavbarDirective {
 }
 
 class NavbarController {
-  constructor (moment) {
+  constructor ($scope,moment,$element,$rootScope) {
     'ngInject';
-
+    var vm = this;
+    vm.scrollOut = false;
+    $scope.$watch('vm.theme',function(newValue){
+      vm.logoImg = '../assets/images/Logo_text.png';
+      if(['inverse','blue','orange','green','pink','purple','red'].indexOf(newValue) > -1){
+        vm.logoImg = '../assets/images/Logo_text_white.png';
+      }
+    });
     // "this.creation" is avaible by directive option "bindToController: true"
-    this.relativeDate = moment(this.creationDate).fromNow();
+    vm.relativeDate = moment(vm.creationDate).fromNow();
+    angular.element('#mainContainer').on('scroll',function(){
+      if($element.offset().top <= -$element.children('.navbar').height() && !vm.scrollOut){
+        $rootScope.$apply(() => {
+          $rootScope.$broadcast('navbar.scrollOut');
+        });
+        vm.scrollOut = true;
+      }else if($element.offset().top > -$element.children('.navbar').height() && vm.scrollOut) {
+        $rootScope.$apply(() => {
+          $rootScope.$broadcast('navbar.scrollIn');
+        });
+        vm.scrollOut = false;
+      }
+    });
   }
 }
 

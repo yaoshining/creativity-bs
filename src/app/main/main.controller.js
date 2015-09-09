@@ -1,18 +1,7 @@
 class MainController {
-  constructor ($timeout, webDevTec, toastr, $scope,$state) {
+  constructor ($timeout, webDevTec, toastr) {
     'ngInject';
-    $scope.snapIndex = 0;
-    var indexMap = [
-      '',
-      'iCreativity',
-      'iCollaborate',
-      'iResources',
-      'iCnigc',
-      'iContact'
-    ];
-    this.beforeScroll = function(index){
-      $state.go('home.index',{index: indexMap[index]});
-    };
+
     this.awesomeThings = [];
     this.classAnimation = '';
     this.creationDate = 1438328103803;

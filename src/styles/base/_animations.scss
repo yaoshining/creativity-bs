@@ -1,0 +1,196 @@
+@import "mixins/animation";
+// me-animated
+.animated {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+.animated.infinite {
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+}
+
+.animated.hinge {
+  -webkit-animation-duration: 2s;
+  animation-duration: 2s;
+}//end me-animated
+//fadeUp
+@include keyframes(fadeInUpLight) {
+  0% {
+    opacity: 0;
+    -moz-transform: translateY(20px);
+    -webkit-transform: translateY(20px);
+  }
+
+  100% {
+    opacity: 1;
+    -moz-transform: translateY(0);
+    -webkit-transform: translateY(0)
+  }
+}
+
+.fadeInUpLight {
+  will-change: opacity,transform;
+  -webkit-animation-name: fadeInUpLight;
+  -moz-animation-name: fadeInUpLight;
+  -o-animation-name: fadeInUpLight;
+  animation-name: fadeInUpLight;
+}
+@include keyframes(fadeOutUpLight) {
+  0% {
+    opacity: 1;
+    -moz-transform: translateY(0);
+    -webkit-transform: translateY(0);
+  }
+
+  100% {
+    opacity: 0;
+    -moz-transform: translateY(-20px);
+    -webkit-transform: translateY(-20px);
+  }
+}
+
+.fadeOutUpLight {
+  -webkit-animation-name: fadeOutUpLight;
+  -moz-animation-name: fadeOutUpLight;
+  -o-animation-name: fadeOutUpLight;
+  animation-name: fadeOutUpLight;
+}
+.fade-in-up {
+  will-change: opacity,transform;
+}
+.fade-in-up.ng-enter {
+  -webkit-animation: fadeInUpLight .5s;
+  animation: fadeInUpLight .5s
+}
+
+.fade-in-up.ng-leave {
+  -webkit-animation: fadeOutUpLight .5s;
+  animation: fadeOutUpLight .5s
+}//end fadeUp
+//fadeDown
+@include keyframes(fadeInDown) {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+@include keyframes(fadeInDownLight) {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -20px, 0);
+    transform: translate3d(0, -20px, 0);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+.fade-in-down {
+  will-change: opacity,transform;
+}
+.fade-in-down.ng-enter {
+  -webkit-animation: fadeInDown .5s;
+  animation: fadeInDown .5s
+}
+.fadeInDown {
+  will-change: opacity,transform;
+  -webkit-animation-name: fadeInDown;
+  -moz-animation-name: fadeInDown;
+  -o-animation-name: fadeInDown;
+  animation-name: fadeInDown;
+}
+.fadeInDownLight {
+  will-change: opacity,transform;
+  -webkit-animation-name: fadeInDownLight;
+  -moz-animation-name: fadeInDownLight;
+  -o-animation-name: fadeInDownLight;
+  animation-name: fadeInDownLight;
+}//end fadeDown
+//fadeRight
+@include keyframes(fadeInRight) {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(100%, 0, 0);
+    -ms-transform: translate3d(100%, 0, 0);
+    transform: translate3d(100%, 0, 0);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+    -ms-transform: none;
+    transform: none;
+  }
+}
+
+@include keyframes(fadeInRightLight) {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(20px, 0, 0);
+    -moz-transform: translate3d(20px, 0, 0);
+    -ms-transform: translate3d(20px, 0, 0);
+    transform: translate3d(20px, 0, 0);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+    -moz-transform: none;
+    -ms-transform: none;
+    transform: none;
+  }
+}
+.fadeInRight {
+  -webkit-animation-name: fadeInRight;
+  -moz-animation-name: fadeInRight;
+  -o-animation-name: fadeInRight;
+  animation-name: fadeInRight;
+}
+.fadeInRightLight {
+  will-change: opacity,transform;
+  -webkit-animation-name: fadeInRightLight;
+  -moz-animation-name: fadeInRightLight;
+  -o-animation-name: fadeInRightLight;
+  animation-name: fadeInRightLight;
+}
+.fade-in-right.ng-enter {
+  -webkit-animation: fadeInRight .5s;
+  animation: fadeInRight .5s;
+}//end fadeRight
+//fadeLeft
+@include keyframes(fadeInLeftLight) {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(-20px, 0, 0);
+    -moz-transform: translate3d(-20px, 0, 0);
+    -ms-transform: translate3d(-20px, 0, 0);
+    transform: translate3d(-20px, 0, 0);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+    -moz-transform: none;
+    -ms-transform: none;
+    transform: none;
+  }
+}
+.fadeInLeftLight {
+  will-change: opacity,transform;
+  -webkit-animation-name: fadeInLeftLight;
+  -moz-animation-name: fadeInLeftLight;
+  -o-animation-name: fadeInLeftLight;
+  animation-name: fadeInLeftLight;
+}

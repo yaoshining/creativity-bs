@@ -1,84 +1,9 @@
-<style shim-shadow>
-    ul.creativity-col {
-        height: 500px;
-        position: absolute;
-        top: 50%;
-        margin-top: -250px;
-        width: 100%;
-        background-color: #F7F8F9;
-        left: 0;
-        display: block;
-        list-style: none;
-        padding: 0;
-        text-align: center;
-    }
-    .creativity-col > li[class^=col-] {
-        position: relative;
-        height: 100%;
-        padding: 100px 0;
-    }
-    .creativity-col > li:first-child:hover {
-        background: url("../assets/images/demo/bg/stock1.jpg") no-repeat center center;
-    }
-    .creativity-col > li:nth-child(2):hover {
-        background: url("../assets/images/demo/bg/stock2.jpg") no-repeat center center;
-    }
-    .creativity-col > li:last-child:hover {
-        background: url("../assets/images/demo/bg/stock3.jpg") no-repeat center center;
-    }
-    .creativity-col > li:hover > .creativity-info {
-        visibility: visible;
-    }
-    .creativity-col > li:hover > .creativity-title {
-        opacity: 0;
-    }
-    .creativity-title {
-        padding: 40px 0;
-    }
-    .creativity-title > img {
-        margin-bottom: 30px;
-    }
-    .creativity-title > h4 {
-        color: #222222;
-    }
-    .creativity-title > h4,.creativity-info > h4 {
-        font-size: 36px;
-    }
-    .creativity-info {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        padding: 93px 8%;
-        visibility: hidden;
-        background: rgba(34, 34, 34, 0.7);
-        color: #ffffff;
-    }
-    .creativity-info p, .creativity-info p strong {
-        -webkit-transform: translateY(30%);
-        -ms-transform: translateY(30%);
-        transform: translateY(30%);
-    }
-    .creativity-info h4, ul.creativity-col li:first-child .creativity-info:after, ul.creativity-col li:nth-child(2) .creativity-info:after {
-        -webkit-transform: translateY(60%);
-        -ms-transform: translateY(60%);
-        transform: translateY(60%);
-    }
-    ul.creativity-col li:hover .creativity-info h4, ul.creativity-col li:hover .creativity-info p, ul.creativity-col li:hover .creativity-info p strong {
-        -webkit-transition: all 0.27s ease-in-out;
-        transition: all 0.27s ease-in-out;
-        -webkit-transform: translateY(0%);
-        -ms-transform: translateY(0%);
-        transform: translateY(0%);
-    }
-</style>
 <div class="slide-container">
     <!--<div class="slide-header">
         <h4 class="slide-title">创新空间</h4>
     </div>-->
     <ul class="creativity-col">
-        <li class="col-lg-4 col-md-4 col-sm-4">
+        <li class="col-lg-4 col-md-4 col-sm-4" ui-sref="creativity.projects">
             <div class="creativity-title">
                 <img src="../assets/images/demo/icons/responsive-icon.png">
                 <h4>找项目</h4>

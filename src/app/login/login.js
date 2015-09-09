@@ -1,8 +1,9 @@
 /**
  * Created by yao on 15/8/4.
  */
+(function($){
 var currentBg = 0;
-var bgInterval = setInterval(function(){
+setInterval(function(){
     var suffix = currentBg?'.jpg':'.png';
     document.body.style.backgroundImage = 'url(assets/images/demo/bg/'+currentBg+suffix+')';
     currentBg = (currentBg+1)%8;
@@ -34,3 +35,4 @@ document.addEventListener('DOMContentLoaded',function(){
         $('.outer-container').removeClass('register-ui');
     });
 });
+})(jQuery);

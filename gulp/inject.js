@@ -52,7 +52,6 @@ gulp.task('inject:login', ['login:scripts','styles:login'], function () {
     ignorePath: [conf.paths.src, path.join(conf.paths.tmp, '/serve')],
     addRootSlash: false
   };
-  console.log(require('wiredep')(_.extend({}, conf.loginWiredep)));
   return gulp.src(path.join(conf.paths.src, '/login.html'))
       .pipe($.inject(injectStyles, injectOptions))
       .pipe($.inject(injectScripts, injectOptions))

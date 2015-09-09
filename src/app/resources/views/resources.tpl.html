@@ -1,0 +1,133 @@
+<style shim-shadow>
+    .repo-item {
+        padding-top: 20px;
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+    .repo-item * {
+        cursor: pointer;
+    }
+    .repo-item-img {
+        background-size: cover;
+        background-repeat: no-repeat;
+    background-position: -20px 0;
+        margin-bottom: 15px;
+    }
+    .resources-header {
+        position: fixed;
+        top: 60px;
+        left: 0;
+        right: 0;
+        height: 150px;
+        line-height: 150px;
+        background-color: #4285F4;
+        color: #FFF;
+        padding-left: 50px;
+        transition: background 2s;
+        box-shadow: 0 2px 4px -1px rgba(0,0,0,.14),0 4px 5px 0 rgba(0,0,0,.098),0 1px 10px 0 rgba(0,0,0,.084);
+    }
+    .resources-header.resources-header-orange {
+        background-color: #F15A24;
+    }
+    .resources-header.resources-header-green {
+        background-color: #34A853;
+    }
+    .resources-header.resources-header-yellow {
+        background-color: #FBBC05;
+        color: #222222;
+    }
+    .resources-header.resources-header-pink {
+        background-color: #E21E79;
+    }
+    .resources-header.resources-header-purple {
+        background-color: #9B59B6;
+    }
+    .resources-header.resources-header-red {
+        background-color: #EA4335;
+    }
+    .resources-header > .resource-title {
+        font-size: 42px;
+    }
+    .resources-content {
+        position: absolute;
+        top: 210px;
+        bottom: 0;
+        width: 100%;
+    }
+    .resources-nav {
+        padding: 0;
+        list-style: none;
+        display: table;
+        width: 100%;
+    }
+    .resources-nav > li {
+        display: table-cell;
+        height: 100px;
+        padding: 0 5px;
+        text-align: center;
+        vertical-align: middle;
+        display: none;
+    }
+    .resources-nav > li.active {
+
+    }
+    .repo-list {
+        text-align: justify;
+        height: 100%;
+        padding: 20px 20px 0;
+    }
+    .repo-item {
+        display: list-item;
+        list-style: none;
+        float: left;
+        width: 16.6%;
+        height: 50%;
+        padding: 10px;
+        position: relative;
+    }
+    .repo-title {
+        font-size: 12px;
+    }
+    .repo-item-content {
+        position: absolute;
+        width: 95%;
+        bottom: 20px;
+    }
+    .repo-item-content.top {
+        bottom: auto;
+        top: 20px;
+    }
+</style>
+<ct-navbar type="fixed" theme="{{current.theme}}" animated></ct-navbar>
+<div class="resources-header" ng-class="current.theme?'resources-header-'+current.theme:''">
+    <ul class="resources-nav">
+        <li ng-repeat="resource in resources" ng-class="{'active': $index === snapIndex}">
+            <img src="../assets/images/demo/bg/resources.jpg" height="60" /><br />
+            {{resource.name}}
+        </li>
+    </ul>
+    <span class="resource-title">{{resources[snapIndex].name}}</span>
+</div>
+<div class="resources-content animated fadeInUpLight" yao-resize ng-style="resizeWithOffset(contentOffset)" notifier="resizeNotify()">
+    <div snapscroll snap-index="snapIndex" snap-height="snapHeight" before-snap="beforeSnap(snapIndex)" after-snap="afterSnap()">
+        <section ng-repeat="resource in resources">
+            <!--<div ng-include="'app/components/home/carousel.tpl.html'"></div>-->
+            <div class="repo-list">
+                <div class="repo-item" ng-repeat="repo in resource.repos">
+                    <div class="repo-item-content" ng-class="{'top': $index > 5}">
+                        <!--ng-style="{'background-image': 'url('+repo.bgImg+')'}"-->
+                        <img class="repo-item-img shadow-z-1" ng-src="{{repo.bgImg}}"
+                             width="100%" />
+                        <div class="repo-title text-center">{{repo.name}}</div>
+                    </div>
+                </div>
+                <div class="repo-item">
+                    <div class="repo-item-content top">
+                        <img class="repo-item-img shadow-z-1" width="100%" src="../assets/images/demo/bg/more.jpg" />
+                        <div class="repo-title text-center">查看更多...</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>

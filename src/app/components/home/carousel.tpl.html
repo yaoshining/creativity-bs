@@ -11,15 +11,6 @@
         font-size: 16px;
         letter-spacing: 1px;
     }
-    body {
-        overflow: hidden;
-    }
-    div[snapscroll] {
-        overflow-y: hidden!important;
-    }
-    div[snapscroll] > section,div[snapscroll] > div {
-        position: relative;
-    }
     .carousel-caption {
         font-size: 18px;
         left: 5%;
@@ -32,9 +23,6 @@
     .navbar-nav > li > a.btn {
         color: #ffffff;
     }
-    .btn {
-        border-radius: 0;
-    }
     .carousel-indicators li,.carousel-indicators li.active {
         margin: 5px;
     }
@@ -43,14 +31,15 @@
     }
 </style>
 
-<div class="slide-container">
+<div class="slide-container animated fadeInUpLight">
     <div nq-carousel hoverStop="false" outer-width="100%" inner-height="100%" effect="slide-left-right" style="height: 100%">
         <div carousel-item>
             <!--<h3 class="carousel-title">Crousel Title 1</h3>-->
             <div style="height: 100%;background-image: url('../assets/images/demo/bg/0.png');background-size: cover"></div>
             <div class="carousel-caption">
-                <h4>We Have a Dream To Change The World.</h4>
-                It Sounds Hard To believe But Nothing Is Impossible As You Already Aware Of This Fact          </div>
+                <h4>我们有一个改变世界的梦想.</h4>
+                这听起来有些难以置信,但是只要你已经认识到没有什么是不可能的就行.
+            </div>
         </div>
         <div carousel-item>
             <!--<h3 class="carousel-title">Crousel Title 3</h3>-->
