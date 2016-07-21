@@ -1,0 +1,39 @@
+<ct-navbar shadow="1"></ct-navbar>
+<div class="slide-container">
+    <div class="sidebar resource-repo-sidebar shadow-z-1">
+        <div class="sidebar-inner scrollable">
+            <div class="repo-title"><i class="fa fa-house"></i>标准件库</div>
+            <script type="text/ng-template" id="resource-repo-nodes-renderer.html">
+                <div ui-tree-handle class="repo-category">
+                    <span ng-click="toggle(this)" ng-if="item.repos && item.repos.length > 0">
+                        <i class="fa fa-fw gray" ng-class="{'fa-plus-square-o': collapsed,'fa-minus-square-o': !collapsed}"></i>
+                    </span>
+                    <span ng-if="!item.repos || item.repos.length <= 0">
+                        <i class="fa fa-fw gray fa-angle-right"></i>
+                    </span>
+                    {{item.name}}
+                </div>
+                <ol ui-tree-nodes ng-model="item.repos" class="repo-nodes" ng-class="{hidden: collapsed}">
+                    <li ng-repeat="item in item.repos" ui-tree-node data-collapsed="true" ng-include="'resource-repo-nodes-renderer.html'">
+                    </li>
+                </ol>
+            </script>
+            <div ui-tree class="resource-repo-tree animated fadeInDownLight" data-drag-enabled="false">
+                <ol ui-tree-nodes ng-model="repos">
+                    <li ng-repeat="item in repos" ui-tree-node data-collapsed="true" ng-include="'resource-repo-nodes-renderer.html'"></li>
+                </ol>
+            </div>
+        </div>
+    </div>
+    <div class="main-container animated fadeInUpLight" style="padding: 15px 30px">
+        <div class="row">
+            <div class="col-sm-2 text-center" style="padding: 10px;cursor: pointer" ng-repeat="repo in repos" ng-click="$event.stopPropagation();detailPanel.show = true">
+                <img ng-src="{{repo.bgImg}}" width="100%" style="margin-bottom: 5px">
+                <div style="height: 50px;font-size: 12px">{{repo.name}}</div>
+            </div>
+        </div>
+    </div>
+    <div id="detailPanel" ng-show="detailPanel.show" class="shadow-z-1 animated fadeInRightLight scrollable-y" style="position: absolute;right: 0;top: 0;height: 100%;background-color: #ffffff;width: 800px;">
+        <div ng-include="'app/resources/views/detail.tpl.html'"></div>
+    </div>
+</div>

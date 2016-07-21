@@ -24,7 +24,12 @@
         color: #FFF;
         padding-left: 50px;
         transition: background 2s;
+        will-change: background-color color;
         box-shadow: 0 2px 4px -1px rgba(0,0,0,.14),0 4px 5px 0 rgba(0,0,0,.098),0 1px 10px 0 rgba(0,0,0,.084);
+    }
+    .resources-header a {
+        color: #fff;
+        text-decoration: none;
     }
     .resources-header.resources-header-orange {
         background-color: #F15A24;
@@ -34,6 +39,9 @@
     }
     .resources-header.resources-header-yellow {
         background-color: #FBBC05;
+        color: #222222;
+    }
+    .resources-header.resources-header-yellow a {
         color: #222222;
     }
     .resources-header.resources-header-pink {
@@ -57,19 +65,25 @@
     .resources-nav {
         padding: 0;
         list-style: none;
-        display: table;
-        width: 100%;
+        display: inline-table;
+        width: 50%;
+        float: right;
+        margin-right: 50px;
     }
     .resources-nav > li {
         display: table-cell;
-        height: 100px;
+        height: 150px;
+        line-height: 50px;
         padding: 0 5px;
         text-align: center;
-        vertical-align: middle;
-        display: none;
+        vertical-align: bottom;
     }
     .resources-nav > li.active {
-
+        position: absolute;
+        top: 50%;
+        font-size: 42px;
+        margin-top: -24px;
+        left: 50px;
     }
     .repo-list {
         text-align: justify;
@@ -102,11 +116,11 @@
 <div class="resources-header" ng-class="current.theme?'resources-header-'+current.theme:''">
     <ul class="resources-nav">
         <li ng-repeat="resource in resources" ng-class="{'active': $index === snapIndex}">
-            <img src="../assets/images/demo/bg/resources.jpg" height="60" /><br />
-            {{resource.name}}
+            <!--<img src="../assets/images/demo/bg/resources.jpg" height="60" /><br />-->
+            <a href ng-click="$parent.snapIndex = $index" style="vertical-align: bottom">{{resource.name}}</a>
         </li>
     </ul>
-    <span class="resource-title">{{resources[snapIndex].name}}</span>
+    <!--<span class="resource-title">{{resources[snapIndex].name}}</span>-->
 </div>
 <div class="resources-content animated fadeInUpLight" yao-resize ng-style="resizeWithOffset(contentOffset)" notifier="resizeNotify()">
     <div snapscroll snap-index="snapIndex" snap-height="snapHeight" before-snap="beforeSnap(snapIndex)" after-snap="afterSnap()">
@@ -122,7 +136,7 @@
                     </div>
                 </div>
                 <div class="repo-item">
-                    <div class="repo-item-content top">
+                    <div class="repo-item-content top" ui-sref="resources.repo({repoId: resource.id})">
                         <img class="repo-item-img shadow-z-1" width="100%" src="../assets/images/demo/bg/more.jpg" />
                         <div class="repo-title text-center">查看更多...</div>
                     </div>

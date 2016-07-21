@@ -1,4 +1,4 @@
-function runBlock ($log,$rootScope,$loading) {
+function runBlock ($log,$rootScope,$loading,$state) {
   'ngInject';
   $rootScope.loading = new $loading({
     showSpinner: false,
@@ -13,6 +13,7 @@ function runBlock ($log,$rootScope,$loading) {
   $rootScope.$on('$stateChangeSuccess',function(){
     $rootScope.loading.hide();
   });
+  $rootScope.$state = $state;
   $log.debug('runBlock end');
 }
 

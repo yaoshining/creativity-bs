@@ -113,3 +113,7 @@
 .stroke-gray {    stroke: $gray; }
 .stroke-silver {  stroke: $silver; }
 .stroke-black {   stroke: $black; }
+
+.bg-gray.light {
+   background-color: lighten($gray, 25%);
+}

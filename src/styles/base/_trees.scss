@@ -1,0 +1,23 @@
+.tree-theme-1 {
+  .angular-ui-tree-handle {
+    cursor: pointer;
+  }
+}
+.resource-repo-tree {
+  font-size: 12px;
+  .repo-category {
+    cursor: pointer;
+    line-height: 40px;
+    padding: 0 15px;
+    font-weight: 300;
+    white-space: nowrap;
+  }
+  & > .angular-ui-tree-nodes > .angular-ui-tree-node {
+    & > .angular-ui-tree-nodes {
+      border-bottom: 1px #E5E5E5 solid;
+    }
+    & > .repo-category {
+      border-bottom: 1px #e5e5e5 solid;
+    }
+  }
+}

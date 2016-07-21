@@ -1,0 +1,108 @@
+<style shim-shadow>
+    .company-image {
+        height: 200px;
+        position: relative;
+    }
+    .company-title {
+        font-size: 20px;
+        color: #0e4f71;
+        margin: 0!important;
+    }
+    .company-text {
+        padding: 15px;
+    }
+    .company-text .desc {
+        margin-top: 15px;
+        overflow: hidden;
+        /*text-overflow: ellipsis;*/
+        /*-webkit-line-clamp: 3;*/
+        /*-webkit-box-orient: vertical;*/
+        /*display: -webkit-box;*/
+        line-height: 22px;
+    }
+    .company-item {
+        cursor: pointer;
+    }
+    .company-item:hover .company-image > .overlay {
+        opacity: 1;
+        visibility: visible;
+    }
+    .company-image > .overlay {
+        background-color: rgba(0,0,0,.75);
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        z-index: 1;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.5s ease;
+        text-align: center;
+        overflow: hidden;
+    }
+    .company-image > .overlay > .btn-ghost {
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        transition: all 0.5s ease;
+    }
+    .company-item:hover .company-image > .overlay > .btn-ghost {
+        top: 50%;
+    }
+</style>
+<div class="company-list row">
+    <div class="col-md-4" ng-repeat-start="i in [1,2,3,4,5]">
+        <div class="card company-item">
+            <div class="company-image">
+                <img src="../assets/images/company/cnigc.png" width="100%" height="100%" />
+                <div class="overlay">
+                    <a href class="btn btn-default btn-ghost">
+                        更多详情
+                    </a>
+                </div>
+            </div>
+            <div class="company-text">
+                <h1 class="company-title">中国兵器工业集团公司</h1>
+                <p class="desc">
+                    中国兵器工业集团公司,是陆军武器装备研制发展主体和三军毁伤与信息化装备研制发展的骨干力量，以服务国家国防安全和国...
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card company-item">
+            <div class="company-image">
+                <img src="../assets/images/company/alibaba.jpg" width="100%" height="100%" />
+                <div class="overlay">
+                    <a href class="btn btn-default btn-ghost">
+                        更多详情
+                    </a>
+                </div>
+            </div>
+            <div class="company-text">
+                <h1 class="company-title">阿里巴巴网络技术有限公司</h1>
+                <p class="desc">
+                    阿里巴巴集团经营多项业务，另外也从关联公司的业务和服务中取得经营商业生态系统上的支援。业务和关联公司的业务包括：...
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4" ng-repeat-end="">
+        <div class="card company-item">
+            <div class="company-image">
+                <img src="../assets/images/company/tencent.jpg" width="100%" height="100%" />
+                <div class="overlay">
+                    <a href class="btn btn-default btn-ghost">
+                        更多详情
+                    </a>
+                </div>
+            </div>
+            <div class="company-text">
+                <h1 class="company-title">腾讯计算机系统有限公司</h1>
+                <p class="desc">
+                    腾讯多元化的服务包括：社交和通信服务QQ及微信/WeChat、社交网络平台QQ空间、腾讯游戏旗下QQ游戏平台、门户网...
+                </p>
+            </div>
+        </div>
+    </div>
+</div>

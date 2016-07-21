@@ -1,0 +1,112 @@
+$sidebar-bg: #f2f2f2 !default;
+$sidebar-nav-color: #fff !default;
+$sidebar-dark-bg: #293038;
+$sidebar-mini-width: 80px;
+$sidebar-width: 270px;
+
+.sidebar {
+  float: left;
+  height: 100%;
+  background-color: $sidebar-bg;
+  width: $sidebar-width;
+  & ~ .main-container {
+    margin-left: $sidebar-width;
+  }
+}
+.sidebar.sidebar-dark {
+  background-color: $sidebar-dark-bg;
+}
+.sidebar-inner {
+  height: 100%;
+}
+.sidebar.mini {
+  width: $sidebar-mini-width;
+  font-size: 12px;
+  & ~ .main-container {
+    margin-left: $sidebar-mini-width;
+  }
+}
+.sidebar-nav > ul {
+  padding: 0;
+  list-style: none;
+}
+.nav-item {
+  text-align: center;
+  padding: 10px 0;
+  cursor: pointer;
+  &:hover {
+    background-color: #37424f;
+  }
+  &.active {
+    background-color: #0099cc;
+  }
+  & > a {
+    text-decoration: none;
+  }
+}
+.nav-icon{
+  color: $sidebar-nav-color;
+  .sidebar.mini & {
+    font-size: 1.5em;
+  }
+}
+.nav-title {
+  color: rgba($sidebar-nav-color,.8);
+  word-break: break-all;
+}
+.nav-brand {
+  position: relative;
+}
+
+//collaborate-sidebar
+.collaborate-sidebar {
+  background-color: #EAEDF1;
+  height: 100%;
+  width: 230px;
+  float: left;
+  .collaborate-nav-title {
+    height: 62px;
+    background-color: #D9DEE4;
+    line-height: 62px;
+    overflow: hidden;
+    text-indent: 20px;
+    font-weight: bold;
+  }
+}
+.collaborate-content {
+  margin-left: 230px;
+}
+.collaborate-nav-list > .nav-list {
+  list-style: none;
+  padding: 0;
+}
+.nav-list > li {
+  & > a {
+    color: inherit;
+    text-decoration: none;
+    display: inline-block;
+    height: 40px;
+    width: 100%;
+    line-height: 40px;
+    padding-left: 2em;
+    &:hover {
+      background-color: rgba(255, 255, 255, .7);
+    }
+    & > .fa {
+      margin-right: 5px;
+    }
+  }
+  &.active > a {
+    background-color: #ffffff;
+  }
+}
+//resource-repo-sidebar
+.resource-repo-sidebar {
+  .repo-title {
+    background-color: #E5E5E5;
+    height: 50px;
+    line-height: 50px;
+    padding: 0 15px;
+    font-size: 16px;
+  }
+}

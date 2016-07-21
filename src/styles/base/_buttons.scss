@@ -1,0 +1,44 @@
+.btn {
+  border-radius: 0;
+}
+.btn:focus, .btn.focus,
+.btn:active:focus, .btn:active.focus,
+.btn.active:focus, .btn.active.focus {
+  outline: none;
+}
+.btn-default.btn-ghost {
+  background: transparent;
+  color: #fff;
+  border: 2px solid #fff;
+  &:active,&:focus,&.active {
+    background: rgba(255,255,255,.2);
+    color: #fff;
+  }
+}
+
+.btn-sm {
+  margin: 0;
+  padding: 5px 20px;
+}
+
+.btn-default.btn-border {
+  &, &:hover, &:focus {
+    border: 1px solid #ECECEC;
+    background-color: $btn-default;
+  }
+}
+
+.btn.btn-round {
+  border-radius: 2em;
+}
+
+.btn.btn-dark {
+  &, &:hover, &:focus {
+    background-color: #333;
+    color: #fff;
+  }
+}
+
+.btn.btn-block {
+  display: block;
+}

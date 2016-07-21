@@ -61,27 +61,35 @@ class ResourcesController {
             "bgImg": "../assets/images/demo/products/product11.jpg"
         }];
         return [{
+            "id": "standard",
             "name": "标准件库",
             "repos": repos
         },{
+            "id": "material",
             "name": "材料库",
             "repos": repos
         },{
+            "id": "component",
             "name": "元器件库",
             "repos": repos
         },{
+            "id": "specs",
             "name": "标准规范库",
             "repos": repos
         },{
+            "id": "cutter",
             "name": "刀具库",
             "repos": repos
         },{
+            "id": "technics",
             "name": "工艺库",
             "repos": repos
         },{
+            "id": "measure",
             "name": "量具库",
             "repos": repos
         },{
+            "id": "resource",
             "name": "资源库",
             "repos": repos
         }];

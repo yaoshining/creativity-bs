@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import "colors/colors";
 @import "base/utils";
 @import "base/navbar";
@@ -6,8 +7,8 @@
 @import "base/trees";
 @import "base/animations";
 @import "base/home";
+@import "base/timeline";
 
-@charset "UTF-8";
 [ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],
 .ng-cloak,.x-ng-cloak,.ng-hide {
   display:none !important;
@@ -21,7 +22,7 @@ section .carousel {
   }
 }
 body {
-  font-family: '微软雅黑';
+  font-family: '微软雅黑','Helvetica Neue',sans-serif,SimHei;
   color: #222222;
   background-color: #ffffff;
 }
@@ -105,4 +106,7 @@ div[snapscroll] > section,div[snapscroll] > div {
 .panel {
   border-width: 0;
   @include box-shadow(0 1px 6px 0 rgba(0,0,0,.12),0 1px 6px 0 rgba(0,0,0,.12));
+}
+.btn.btn-fab {
+  border-radius: 100%;
 }

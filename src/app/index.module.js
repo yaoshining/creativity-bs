@@ -7,6 +7,10 @@ import runBlock from './index.run';
 import MainController from './main/main.controller';
 import HomeController from './main/home.controller';
 import ResourcesController from './resources/controllers/Resources.controller';
+import ResourceRepoController from './resources/controllers/ResourceRepo.controller';
+import CngicController from './cnigc/controllers/Cngic.controller';
+import CollaborateController from './collaborate/controllers/collaborate.controller';
+import ProjectsController from './collaborate/controllers/projects.controller';
 import UtilsModule from '../app/components/utils/utils.module.js';
 import GithubContributorService from '../app/components/githubContributor/githubContributor.service';
 import * as creativityCtls from '../app/creativity/controllers/creativity.controller.js';
@@ -36,6 +40,10 @@ angular.module('creativity', ['ngAnimate', 'ngCookies', 'ngTouch',
   .controller('ProjectNavController', creativityCtls.ProjectNavController)
   .controller('ProjectListController', creativityCtls.ProjectListController)
   .controller('ResourcesController', ResourcesController)
+  .controller('ResourceRepoController', ResourceRepoController)
+  .controller('CollaborateController', CollaborateController)
+  .controller('ProjectsController', ProjectsController)
+  .controller('CngicController', CngicController)
   .directive('ctNavbar', () => new NavbarDirective())
   .directive('ctFooter', () => new FooterDirective())
   .directive('acmeMalarkey', () => new MalarkeyDirective(malarkey));

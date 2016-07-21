@@ -1,0 +1,108 @@
+<div class="height-100">
+    <div class="collaborate-sidebar">
+        <div class="collaborate-nav-title">
+            项目
+        </div>
+        <div class="collaborate-nav-list">
+            <ul class="nav-list">
+                <li class="active">
+                    <a href><i class="fa fa-tasks fa-fw"></i>所有项目({{projects.length}})</a>
+                </li>
+                <li>
+                    <a href><i class="fa fa-clock-o fa-fw"></i>我创建的(0)</a>
+                </li>
+                <li>
+                    <a href><i class="fa fa-check-circle-o fa-fw green"></i>我参与的()</a>
+                </li>
+                <li>
+                    <a href><i class="fa fa-eye fa-fw"></i>已开启演示()</a>
+                </li>
+            </ul>
+        </div>
+        <hr style="border-bottom: 1px solid rgb(204,204,204);" />
+        <div class="collaborate-nav-list">
+            <ul class="nav-list">
+                <li>
+                    <a href><i class="fa fa-tasks fa-fw"></i>我关注的(0)</a>
+                </li>
+                <li>
+                    <a href><i class="fa fa-clock-o fa-fw"></i>我收藏的(0)</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="collaborate-content">
+        <div class="collaborate-group">
+            <div class="group-heading">
+                <div class="group-title">
+                    <span class="pull-left">所有项目 ({{projects.length}})</span>
+                    <span class="pull-right" ng-hide="editable">
+                        <a class="btn btn-default btn-border btn-round btn-flat btn-sm" ng-click="editable = true">
+                            <i class="fa fa-circle-o"></i>
+                            分组
+                        </a>
+                    </span>
+                    <div class="edit-toolbar" ng-show="editable">
+                        <span>(已选中 {{getCheckedItems().length}} 个项目)</span>
+                        <span class="pull-right">
+                            <a class="btn btn-dark btn-border btn-round btn-flat btn-sm" ng-click="$event.stopPropagation();moveToMenu.show = !moveToMenu.show">
+                                移动至..
+                                <div class="menu" ng-class="{open: moveToMenu.show}">
+                                    <ul>
+                                        <li class="bg-gray light">
+                                            <i class="fa fa-sign-out fa-fw"></i>组外
+                                        </li>
+                                        <li class="group-item" ng-repeat="g in groups.grouped">
+                                            {{g.group.name}}
+                                        </li>
+                                        <li class="bg-gray light">
+                                            <div class="btn btn-default btn-border btn-round btn-flat btn-sm btn-block">
+                                                <i class="fa fa-plus fa-fw"></i>
+                                                新分组
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </a>
+                        <a class="btn btn-default btn-border btn-round btn-flat btn-sm" ng-click="editable = false">返回</a>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="group-body">
+                <ul class="project-group" ng-class="{editable: editable}">
+                    <li class="group" ng-class="{open: g.group.opened}" ng-repeat="g in groups.grouped" ng-click="openGroup($event, g.group)">
+                        <div class="thumb">
+                            <ul class="sub-projects">
+                                <li class="item" ng-repeat="project in g.projects" ng-click="g.group.opened && projectClick(project)">
+                                    <div class="project-image">
+                                        <img ng-src="{{project.img}}" />
+                                        <div class="corner-label" ng-class="{green: project.checked}">
+                                            <i class="fa fa-check"></i>
+                                        </div>
+                                    </div>
+                                    <div class="title">
+                                        <i class="fa fa-lock fa-fw"></i>{{project.name}}
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="title">
+                            <i class="fa fa-folder fa-fw"></i>{{g.group.name}}
+                        </div>
+                    </li>
+                    <li class="item" ng-repeat="project in groups.ungrouped" ng-click="projectClick(project)">
+                        <div class="thumb" ng-style="{backgroundImage: 'url('+project.img+')'}">
+                            <div class="corner-label" ng-class="{green: project.checked}">
+                                <i class="fa fa-check"></i>
+                            </div>
+                        </div>
+                        <div class="title">
+                            <i class="fa fa-lock fa-fw"></i>{{project.name}}
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

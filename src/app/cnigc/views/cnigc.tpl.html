@@ -1,0 +1,363 @@
+<style shim-shadow>
+    .cngic-sidebar-nav {
+        height: 100%;
+        color: #666666;
+    }
+    .cngic-sidebar-nav ul {
+        padding: 0;
+        margin: 0;
+        list-style: none;
+    }
+    .cngic-sidebar-nav > ul > li > .list-title {
+        padding: 0 15px;
+        height: 42px;
+        line-height: 42px;
+        border-bottom: 1px solid rgba(0,0,0, .08);
+    }
+    .cngic-sidebar-nav > ul > li {
+        transition: border 1s,background 1s;
+        border-left: solid #4285F4;
+        border-width: 0;
+    }
+    .cngic-sidebar-nav > ul > li > .sub-nav > li {
+        padding: 0 15px;
+    }
+    .cngic-sidebar-nav > ul > li.active {
+        background-color: #ffffff;
+        border-left-width: 10px;
+        color: #000000;
+    }
+    .cngic-sidebar-nav .sub-nav > li > a {
+        height: 42px;
+        line-height: 42px;
+        display: inline-block;
+        width: 100%;
+        position: relative;
+    }
+    .sub-nav >li .fa {
+        margin-right: 5px;
+    }
+    .cngic-sidebar-nav > ul li {
+        position: relative;
+    }
+    .sub-nav > li > a:before {
+        display: inline-block;
+        position: absolute;
+        right: 0;
+        content: "\f105";
+        font-family: "FontAwesome";
+    }
+    .cngic-sidebar-nav a {
+        color: inherit;
+        text-decoration: none;
+    }
+    .cngic-sidebar-nav .list-title {
+        cursor: pointer;
+    }
+    .cngic-sidebar-nav .sub-nav > li:hover, .cngic-sidebar-nav .sub-nav > li.active {
+        color: #4285F4;
+    }
+    .cngic-sidebar-nav .sub-nav > li.active:before {
+        display: inline-block;
+        content: " ";
+        border: solid transparent;
+        border-left-color: #4285F4;
+        border-width: 14px 10px;
+        position: absolute;
+        left: 0;
+        top: 6px;
+    }
+    .iAbilities {
+        height: 100%;
+        overflow: hidden;
+    }
+    .iAbility-wrap {
+        height: 50%;
+        padding: 5px;
+    }
+    .iAbility {
+        height: 100%;
+        position: relative;
+        overflow: hidden;
+        cursor: pointer;
+    }
+    .iAbility .desc {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        color: #ccc;
+        background-color: rgba(102,102,102,0.95);
+        padding: 12px 20px 10px;
+        -webkit-transition: all .3s;
+        -moz-transition: all .3s;
+        -ms-transition: all .3s;
+        -o-transition: all .3s;
+        transition: all .3s;
+        -webkit-transform: translateY(100%);
+        -moz-transform: translateY(100%);
+        -ms-transform: translateY(100%);
+        -o-transform: translateY(100%);
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    .iAbility .desc > h1 {
+        font-size: 22px;
+        line-height: 28px;
+        margin: 0 0 5px 0;
+        color: #fff;
+    }
+    .iAbility .desc > p {
+        margin: 0;
+    }
+    .iAbility:hover .desc {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    .iReqs {
+        height: 100%;
+    }
+    .iReq-wrap {
+        height: 33.33333%;
+        padding: 15px;
+    }
+    .iReq {
+        height: 100%;
+        cursor: pointer;
+    }
+    .iReq-thumbnail {
+        float: left;
+        position: relative;
+        height: 100%;
+        width: 25%;
+        /*border-top: 6px solid #4285F4;*/
+    }
+    .iReq .desc {
+        margin-left: calc(25% + 20px);
+    }
+    .iReq-title {
+        margin: 0 0 5px 0;
+        color: #333;
+        font-size: 22px;
+        line-height: 28px;
+    }
+    .iReq-text {
+        margin-top: 15px;
+        color: #777;
+        line-height: 24px;
+    }
+</style>
+<ct-navbar shadow="1"></ct-navbar>
+<div class="slide-container">
+    <div class="sidebar scrollable-y shadow-z-1">
+        <div class="cngic-sidebar-nav">
+            <ul>
+                <li class="animated fadeInDownLight" ng-class="{'active': isNavActive('abilities')}">
+                    <div ui-sref="cnigc.abilities({categoryId: ''})" class="list-title">服务能力</div>
+                    <ul class="sub-nav">
+                        <li ui-sref-active="active">
+                            <a ui-sref="cnigc.abilities({categoryId: 1})">
+                                <i class="fa fa-fw fa-delicious"></i>研发能力服务
+                            </a>
+                        </li>
+                        <li ui-sref-active="active">
+                            <a ui-sref="cnigc.abilities({categoryId: 2})">
+                                <i class="fa fa-fw fa-comment"></i>生产能力服务
+                            </a>
+                        </li>
+                        <li ui-sref-active="active">
+                            <a ui-sref="cnigc.abilities({categoryId: 3})">
+                                <i class="fa fa-fw fa-behance-square"></i>配套能力服务
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="animated fadeInDownLight" ng-class="{'active': isNavActive('products')}" style="animation-delay: .2s">
+                    <div ui-sref="cnigc.products" class="list-title">产品</div>
+                    <ul class="sub-nav">
+                        <li ui-sref-active="active">
+                            <a ui-sref="cnigc.products({categoryId: 1})">
+                                <i class="fa fa-fw fa-delicious"></i>产品分类1
+                            </a>
+                        </li>
+                        <li ui-sref-active="active">
+                            <a ui-sref="cnigc.products({categoryId: 2})">
+                                <i class="fa fa-fw fa-comment"></i>产品分类2
+                            </a>
+                        </li>
+                        <li ui-sref-active="active">
+                            <a ui-sref="cnigc.products({categoryId: 3})">
+                                <i class="fa fa-fw fa-behance-square"></i>产品分类3
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="animated fadeInDownLight" ng-class="{'active': isNavActive('requirements')}" style="animation-delay: .4s">
+                    <div ui-sref="cnigc.requirements" class="list-title">需求</div>
+                    <ul class="sub-nav">
+                        <li ui-sref-active="active">
+                            <a ui-sref="cnigc.requirements({categoryId: 1})">
+                                <i class="fa fa-fw fa-delicious"></i>需求分类1
+                            </a>
+                        </li>
+                        <li ui-sref-active="active">
+                            <a ui-sref="cnigc.requirements({categoryId: 2})">
+                                <i class="fa fa-fw fa-comment"></i>需求分类2
+                            </a>
+                        </li>
+                        <li ui-sref-active="active">
+                            <a ui-sref="cnigc.requirements({categoryId: 3})">
+                                <i class="fa fa-fw fa-behance-square"></i>需求分类3
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li ui-sref-active="active" class="animated fadeInDownLight" style="animation-delay: .6s">
+                    <div class="list-title" ui-sref="cnigc.companies">单位列表</div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div ng-hide="isChildState()" class="main-container height-100 animated fadeInUpLight" yao-resize ng-style="resizeWithOffset(contentOffset)" notifier="resizeNotify(windowHeight)">
+        <div snapscroll snap-index="snapIndex" snap-height="snapHeight">
+            <section style="padding: 5px">
+                <div class="iAbilities">
+                    <div class="col-md-6 iAbility-wrap">
+                        <div class="iAbility">
+                            <img src="../assets/images/demo/abilities/1.jpg" width="100%" height="100%" />
+                            <div class="desc">
+                                <h1>研发能力服务</h1>
+                                <p>
+                                    研发能力服务研发能力服务研发能力服务研发能力服务研发能力服务研发能力服务
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 iAbility-wrap">
+                        <div class="iAbility">
+                            <img src="../assets/images/demo/abilities/2.jpg" width="100%" height="100%" />
+                            <div class="desc">
+                                <h1>生产能力服务</h1>
+                                <p>
+                                    生产能力服务生产能力服务生产能力服务生产能力服务生产能力服务生产能力服务生产能力服务生产能力服务
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 iAbility-wrap">
+                        <div class="iAbility">
+                            <img src="../assets/images/demo/abilities/3.jpg" width="100%" height="100%" />
+                            <div class="desc">
+                                <h1>配套能力服务</h1>
+                                <p>
+                                    配套能力服务配套能力服务配套能力服务配套能力服务配套能力服务配套能力服务
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 iAbility-wrap">
+                        <div class="iAbility">
+                            <img src="../assets/images/demo/abilities/4.png" width="100%" height="100%" />
+                            <div class="desc">
+                                <h1>配套能力服务</h1>
+                                <p>
+                                    配套能力服务配套能力服务配套能力服务配套能力服务配套能力服务配套能力服务
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section>产品列表</section>
+            <section>
+                <div class="iReqs">
+                    <div class="col-md-6 iReq-wrap">
+                        <div class="iReq">
+                            <div class="iReq-thumbnail">
+                                <img src="../assets/images/demo/reqs/railway.jpg" width="100%" height="100%" />
+                            </div>
+                            <div class="desc">
+                                <h3 class="iReq-title">铁路需求</h3>
+                                <span class="subtitle">Requirement of Railway</span>
+                                <p class="iReq-text">
+                                    铁路是供火车等交通工具行驶的轨道。铁路运输是一种陆上运输方式，以机车牵引列车车辆在两条平行的铁轨上行走。传统方式是钢轮行进，但广义的铁路运输尚包括磁悬浮列车、缆车、索道等非钢轮行进的...
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 iReq-wrap">
+                        <div class="iReq">
+                            <div class="iReq-thumbnail">
+                                <img src="../assets/images/demo/reqs/bridge.jpg" width="100%" height="100%" />
+                            </div>
+                            <div class="desc">
+                                <h3 class="iReq-title">桥梁需求</h3>
+                                <span class="subtitle">Requirement of Bridge</span>
+                                <p class="iReq-text">
+                                    桥梁，指架设在江河湖海上，使车辆行人等能顺利通行的建筑物，称为桥。 桥梁一般由上部构造、下部结构和附属构...
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 iReq-wrap">
+                        <div class="iReq">
+                            <div class="iReq-thumbnail">
+                                <img src="../assets/images/demo/reqs/vehicle.jpg" width="100%" height="100%" />
+                            </div>
+                            <div class="desc">
+                                <h3 class="iReq-title">汽车需求</h3>
+                                <span class="subtitle">Requirement of Vehicle</span>
+                                <p class="iReq-text">
+                                    我国国家最新标准《汽车和挂车类型的术语和定义》(GB/T 3730．1—2001)中对汽车有如下定义：由动力驱动，具有4个或4个以上车轮的非轨道承载的车辆，主要用于：载运人员和（或）货物；牵引载运人员...
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 iReq-wrap">
+                        <div class="iReq">
+                            <div class="iReq-thumbnail">
+                                <img src="../assets/images/demo/reqs/construction.jpg" width="100%" height="100%" />
+                            </div>
+                            <div class="desc">
+                                <h3 class="iReq-title">建筑需求</h3>
+                                <span class="subtitle">Requirement of Construction</span>
+                                <p class="iReq-text">
+                                    建筑是建筑物与构筑物的总称，是人们为了满足社会生活需要，利用所掌握的物质技术手段，并运用一定的科学规律、风水理念和美学法则创造的人工环境。
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 iReq-wrap">
+                        <div class="iReq">
+                            <div class="iReq-thumbnail">
+                                <img src="../assets/images/demo/reqs/mechanical.jpg" width="100%" height="100%" />
+                            </div>
+                            <div class="desc">
+                                <h3 class="iReq-title">机械需求</h3>
+                                <span class="subtitle">Requirement of Mechanical</span>
+                                <p class="iReq-text">
+                                    机械就是能帮人们降低工作难度或省力的工具装置，像筷子、扫帚以及镊子一类的物品都可以被称为机械，他们是简单机械。而复杂机械就是由两种或两种以上的简单机械构成。通常把这些比较复杂的机械...
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 iReq-wrap">
+                        <div class="iReq">
+                            <div class="iReq-thumbnail">
+                                <img src="../assets/images/demo/reqs/chemical.jpg" width="100%" height="100%" />
+                            </div>
+                            <div class="desc">
+                                <h3 class="iReq-title">化工需求</h3>
+                                <span class="subtitle">Requirement of Chemical</span>
+                                <p class="iReq-text">
+                                    人类与化工的关系十分密切，普及到生活的方方面面。在现代生活中，几乎随时随地都离不开化工产品，从衣、食、住、行等物质生活到文化艺术、娱乐等精神生活，都需要化工产品为之服务。有些化工...
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+    <div class="main-container height-100 animated fadeInUpLight padding-15 scrollable" ui-view>
+    </div>
+</div>
