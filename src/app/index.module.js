@@ -11,6 +11,7 @@ import ResourceRepoController from './resources/controllers/ResourceRepo.control
 import CngicController from './cnigc/controllers/Cngic.controller';
 import CollaborateController from './collaborate/controllers/collaborate.controller';
 import ProjectsController from './collaborate/controllers/projects.controller';
+import TasksController from './collaborate/controllers/tasks.controller';
 import UtilsModule from '../app/components/utils/utils.module.js';
 import GithubContributorService from '../app/components/githubContributor/githubContributor.service';
 import * as creativityCtls from '../app/creativity/controllers/creativity.controller.js';
@@ -45,6 +46,7 @@ angular.module('creativity', ['ngAnimate', 'ngCookies', 'ngTouch',
   .controller('ResourceRepoController', ResourceRepoController)
   .controller('CollaborateController', CollaborateController)
   .controller('ProjectsController', ProjectsController)
+  .controller('TasksController', TasksController)
   .controller('CngicController', CngicController)
   .directive('ctNavbar', () => new NavbarDirective())
   .directive('ctFooter', () => new FooterDirective())

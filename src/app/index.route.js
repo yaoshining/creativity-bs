@@ -54,7 +54,8 @@ function routerConfig ($stateProvider, $urlRouterProvider) {
         }
       }).state('collaborate.tasks',{
         url: '/tasks',
-        templateUrl: 'app/collaborate/views/tasks.tpl.html'
+        templateUrl: 'app/collaborate/views/tasks.tpl.html',
+        controller: 'TasksController'
       }).state('collaborate.projects',{
         url: '/projects',
         templateUrl: 'app/collaborate/views/projects.tpl.html',

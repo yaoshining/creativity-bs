@@ -2,7 +2,7 @@
  * Created by yao on 15/11/10.
  */
 class ProjectsController {
-    constructor($scope, $document, $rootScope) {
+    constructor($scope, $document, $rootScope, sidebarService) {
         'ngInject';
         $scope.projects = this.getProjects();
         $scope.groups = this.getGroups($scope.projects);
@@ -41,6 +41,7 @@ class ProjectsController {
             });
         };
 
+        sidebarService.expand();
     }
 
     getProjects() {

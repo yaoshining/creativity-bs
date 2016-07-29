@@ -16,6 +16,16 @@ class SidebarService {
         collapsed = !collapsed;
         $('.collaborate-sidebar').toggle();
     }
+
+    expand() {
+        collapsed = false;
+        $('.collaborate-sidebar').show()
+    }
+
+    collapse() {
+        collapsed = true;
+        $('.collaborate-sidebar').hide();
+    }
 }
 
 let collapsed = false;
