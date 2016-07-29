@@ -74,7 +74,7 @@ $sidebar-width: 270px;
   }
 }
 .collaborate-content {
-  margin-left: 230px;
+  overflow: hidden;
 }
 .collaborate-nav-list > .nav-list {
   list-style: none;
@@ -100,6 +100,37 @@ $sidebar-width: 270px;
     background-color: #ffffff;
   }
 }
+
+.sidebar-toggle {
+  border: 0 solid #ffffff;
+  text-align: center;
+  padding: 5px 0;
+  position: relative;
+  background-color: #414D5C;
+  &:before {
+    content: '';
+    height: 0;
+    border-top: 1px solid;
+    border-color: inherit;
+    position: absolute;
+    left: 5px;
+    right: 5px;
+    top: 13px;
+  }
+
+  & > .ct-icon {
+    border: 1px solid #b1b1b1;
+    font-size: 13px;
+    padding: 0 4px;
+    line-height: 15px;
+    color: #999;
+    background-color: #ffffff;
+    border-radius: 50%;
+    position: relative;
+    cursor: pointer;
+  }
+}
+
 //resource-repo-sidebar
 .resource-repo-sidebar {
   .repo-title {

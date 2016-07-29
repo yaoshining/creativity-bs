@@ -40,6 +40,7 @@ class ProjectsController {
                 return project.checked;
             });
         };
+
     }
 
     getProjects() {

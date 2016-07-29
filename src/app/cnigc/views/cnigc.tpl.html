@@ -1,157 +1,9 @@
-<style shim-shadow>
-    .cngic-sidebar-nav {
-        height: 100%;
-        color: #666666;
-    }
-    .cngic-sidebar-nav ul {
-        padding: 0;
-        margin: 0;
-        list-style: none;
-    }
-    .cngic-sidebar-nav > ul > li > .list-title {
-        padding: 0 15px;
-        height: 42px;
-        line-height: 42px;
-        border-bottom: 1px solid rgba(0,0,0, .08);
-    }
-    .cngic-sidebar-nav > ul > li {
-        transition: border 1s,background 1s;
-        border-left: solid #4285F4;
-        border-width: 0;
-    }
-    .cngic-sidebar-nav > ul > li > .sub-nav > li {
-        padding: 0 15px;
-    }
-    .cngic-sidebar-nav > ul > li.active {
-        background-color: #ffffff;
-        border-left-width: 10px;
-        color: #000000;
-    }
-    .cngic-sidebar-nav .sub-nav > li > a {
-        height: 42px;
-        line-height: 42px;
-        display: inline-block;
-        width: 100%;
-        position: relative;
-    }
-    .sub-nav >li .fa {
-        margin-right: 5px;
-    }
-    .cngic-sidebar-nav > ul li {
-        position: relative;
-    }
-    .sub-nav > li > a:before {
-        display: inline-block;
-        position: absolute;
-        right: 0;
-        content: "\f105";
-        font-family: "FontAwesome";
-    }
-    .cngic-sidebar-nav a {
-        color: inherit;
-        text-decoration: none;
-    }
-    .cngic-sidebar-nav .list-title {
-        cursor: pointer;
-    }
-    .cngic-sidebar-nav .sub-nav > li:hover, .cngic-sidebar-nav .sub-nav > li.active {
-        color: #4285F4;
-    }
-    .cngic-sidebar-nav .sub-nav > li.active:before {
-        display: inline-block;
-        content: " ";
-        border: solid transparent;
-        border-left-color: #4285F4;
-        border-width: 14px 10px;
-        position: absolute;
-        left: 0;
-        top: 6px;
-    }
-    .iAbilities {
-        height: 100%;
-        overflow: hidden;
-    }
-    .iAbility-wrap {
-        height: 50%;
-        padding: 5px;
-    }
-    .iAbility {
-        height: 100%;
-        position: relative;
-        overflow: hidden;
-        cursor: pointer;
-    }
-    .iAbility .desc {
-        position: absolute;
-        bottom: 0;
-        width: 100%;
-        color: #ccc;
-        background-color: rgba(102,102,102,0.95);
-        padding: 12px 20px 10px;
-        -webkit-transition: all .3s;
-        -moz-transition: all .3s;
-        -ms-transition: all .3s;
-        -o-transition: all .3s;
-        transition: all .3s;
-        -webkit-transform: translateY(100%);
-        -moz-transform: translateY(100%);
-        -ms-transform: translateY(100%);
-        -o-transform: translateY(100%);
-        transform: translateY(100%);
-        opacity: 0;
-    }
-    .iAbility .desc > h1 {
-        font-size: 22px;
-        line-height: 28px;
-        margin: 0 0 5px 0;
-        color: #fff;
-    }
-    .iAbility .desc > p {
-        margin: 0;
-    }
-    .iAbility:hover .desc {
-        opacity: 1;
-        transform: translateY(0);
-    }
-    .iReqs {
-        height: 100%;
-    }
-    .iReq-wrap {
-        height: 33.33333%;
-        padding: 15px;
-    }
-    .iReq {
-        height: 100%;
-        cursor: pointer;
-    }
-    .iReq-thumbnail {
-        float: left;
-        position: relative;
-        height: 100%;
-        width: 25%;
-        /*border-top: 6px solid #4285F4;*/
-    }
-    .iReq .desc {
-        margin-left: calc(25% + 20px);
-    }
-    .iReq-title {
-        margin: 0 0 5px 0;
-        color: #333;
-        font-size: 22px;
-        line-height: 28px;
-    }
-    .iReq-text {
-        margin-top: 15px;
-        color: #777;
-        line-height: 24px;
-    }
-</style>
 <ct-navbar shadow="1"></ct-navbar>
 <div class="slide-container">
     <div class="sidebar scrollable-y shadow-z-1">
         <div class="cngic-sidebar-nav">
             <ul>
-                <li class="animated fadeInDownLight" ng-class="{'active': isNavActive('abilities')}">
+                <li ng-class="{'active': isNavActive('abilities')}">
                     <div ui-sref="cnigc.abilities({categoryId: ''})" class="list-title">服务能力</div>
                     <ul class="sub-nav">
                         <li ui-sref-active="active">
@@ -171,7 +23,7 @@
                         </li>
                     </ul>
                 </li>
-                <li class="animated fadeInDownLight" ng-class="{'active': isNavActive('products')}" style="animation-delay: .2s">
+                <li ng-class="{'active': isNavActive('products')}" style="animation-delay: .2s">
                     <div ui-sref="cnigc.products" class="list-title">产品</div>
                     <ul class="sub-nav">
                         <li ui-sref-active="active">
@@ -191,7 +43,7 @@
                         </li>
                     </ul>
                 </li>
-                <li class="animated fadeInDownLight" ng-class="{'active': isNavActive('requirements')}" style="animation-delay: .4s">
+                <li ng-class="{'active': isNavActive('requirements')}" style="animation-delay: .4s">
                     <div ui-sref="cnigc.requirements" class="list-title">需求</div>
                     <ul class="sub-nav">
                         <li ui-sref-active="active">
@@ -211,7 +63,7 @@
                         </li>
                     </ul>
                 </li>
-                <li ui-sref-active="active" class="animated fadeInDownLight" style="animation-delay: .6s">
+                <li ui-sref-active="active" style="animation-delay: .6s">
                     <div class="list-title" ui-sref="cnigc.companies">单位列表</div>
                 </li>
             </ul>

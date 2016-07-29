@@ -1,7 +1,7 @@
 <ct-navbar shadow="1"></ct-navbar>
 <div class="slide-container">
     <div class="sidebar sidebar-dark mini">
-        <div class="sidebar-inner scrollable animated fadeInLeftLight">
+        <div class="sidebar-inner scrollable">
             <div class="sidebar-nav">
                 <ul>
                     <li class="nav-item" ui-sref-active-eq="active" ng-repeat="nav in navs">
@@ -13,6 +13,9 @@
                         </a>
                     </li>
                 </ul>
+                <div class="sidebar-toggle" ng-click="sidebar.toggle()">
+                    <i class="ct-icon fa" ng-class="{'fa-angle-double-left': !sidebar.collapsed, 'fa-angle-double-right': sidebar.collapsed}"></i>
+                </div>
             </div>
         </div>
     </div>

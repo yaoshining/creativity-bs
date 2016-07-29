@@ -2,24 +2,9 @@
  * Created by yao on 15/11/16.
  */
 class CollaborateConroller {
-    constructor($scope, $rootScope, $state) {
+    constructor($scope, $rootScope, $state, sidebarService) {
         'ngInject';
-        $scope.navs = [{
-            id: 1,
-            name: '仪表盘',
-            sref: 'collaborate',
-            iconClass: 'fa-dashboard'
-        },{
-            id: 2,
-            name: '项目',
-            sref: 'collaborate.projects',
-            iconClass: 'fa-tasks'
-        },{
-            id: 3,
-            name: '任务',
-            sref: 'collaborate.tasks',
-            iconClass: 'fa-tasks'
-        }];
+        $scope.navs = sidebarService.navs;
 
         $rootScope.$on('collaborate.navs.add', (event, nav, pos) => {
             if($scope.navs.some((n) => {
@@ -49,6 +34,9 @@ class CollaborateConroller {
             });
             $state.go('collaborate.projects');
         };
+
+        $scope.sidebar = sidebarService;
+
     }
 }
 

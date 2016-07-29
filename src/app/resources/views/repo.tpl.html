@@ -18,14 +18,14 @@
                     </li>
                 </ol>
             </script>
-            <div ui-tree class="resource-repo-tree animated fadeInDownLight" data-drag-enabled="false">
+            <div ui-tree class="resource-repo-tree" data-drag-enabled="false">
                 <ol ui-tree-nodes ng-model="repos">
                     <li ng-repeat="item in repos" ui-tree-node data-collapsed="true" ng-include="'resource-repo-nodes-renderer.html'"></li>
                 </ol>
             </div>
         </div>
     </div>
-    <div class="main-container animated fadeInUpLight" style="padding: 15px 30px">
+    <div class="main-container" style="padding: 15px 30px">
         <div class="row">
             <div class="col-sm-2 text-center" style="padding: 10px;cursor: pointer" ng-repeat="repo in repos" ng-click="$event.stopPropagation();detailPanel.show = true">
                 <img ng-src="{{repo.bgImg}}" width="100%" style="margin-bottom: 5px">
@@ -33,7 +33,7 @@
             </div>
         </div>
     </div>
-    <div id="detailPanel" ng-show="detailPanel.show" class="shadow-z-1 animated fadeInRightLight scrollable-y" style="position: absolute;right: 0;top: 0;height: 100%;background-color: #ffffff;width: 800px;">
+    <div id="detailPanel" ng-show="detailPanel.show" class="shadow-z-1 scrollable-y" style="position: absolute;right: 0;top: 0;height: 100%;background-color: #ffffff;width: 800px;">
         <div ng-include="'app/resources/views/detail.tpl.html'"></div>
     </div>
 </div>

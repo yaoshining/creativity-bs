@@ -18,6 +18,7 @@ import WebDevTecService from '../app/components/webDevTec/webDevTec.service';
 import NavbarDirective from '../app/components/navbar/navbar.directive';
 import FooterDirective from '../app/components/footer/footer.directive';
 import MalarkeyDirective from '../app/components/malarkey/malarkey.directive';
+import SidebarService from '../app/components/sidebar/sidebar.service';
 
 var utilsModule = new UtilsModule(angular);
 
@@ -35,6 +36,7 @@ angular.module('creativity', ['ngAnimate', 'ngCookies', 'ngTouch',
   .run(runBlock)
   .service('githubContributor', GithubContributorService)
   .service('webDevTec', WebDevTecService)
+  .service('sidebarService', SidebarService)
   .controller('MainController', MainController)
   .controller('HomeController', HomeController)
   .controller('ProjectNavController', creativityCtls.ProjectNavController)

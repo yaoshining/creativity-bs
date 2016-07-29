@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1,
+    "name": "仪表盘",
+    "sref": "collaborate",
+    "iconClass": "fa-dashboard"
+  },{
+    "id": 2,
+    "name": "项目",
+    "sref": "collaborate.projects",
+    "iconClass": "fa-tasks"
+  },{
+    "id": 3,
+    "name": "任务",
+    "sref": "collaborate.tasks",
+    "iconClass": "fa-tasks"
+  } 
+]
