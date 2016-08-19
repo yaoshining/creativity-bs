@@ -1,0 +1,90 @@
+<div class="height-100 reports-page">
+    <div class="collaborate-sidebar">
+        <div class="collaborate-nav-title">
+            报表
+        </div>
+        <div class="collaborate-nav-list">
+            <ul class="nav-list">
+                <li ui-sref-active-eq="active">
+                    <a ui-sref="collaborate.reports"><i class="fa fa-th-list fa-fw"></i>所有报表(100)</a>
+                </li>
+                <li ui-sref-active-eq="active">
+                    <a ui-sref="collaborate.reports.add"><i class="fa fa-plus-square-o fa-fw"></i>创建报表</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="collaborate-content" ui-view>
+        <div class="report-list-header">
+            <div>
+                <h5 class="v-line-title">报表分组</h5>
+                <ul class="report-groups">
+                    <li class="active">
+                        <a href>未分组</a>
+                    </li><li>
+                    <a href>分组1</a>
+                </li><li>
+                    <a href>分组2</a>
+                </li><li>
+                    <a href>分组3</a>
+                </li><li>
+                    <a href>分组4</a>
+                </li><li>
+                    <a href>分组5</a>
+                </li><li>
+                    <a href>分组6</a>
+                </li><li>
+                    <a href>分组7</a>
+                </li>
+                </ul>
+                <span class="pull-right">
+                    <span class="btn btn-light-grey">
+                        <i class="fa fa-refresh"></i>刷新
+                    </span>
+                    <button class="btn btn-info" ui-sref="collaborate.reports.add">创建报表</button>
+                </span>
+            </div>
+            <div>
+                <form class="form-inline">
+                    <select class="form-control">
+                        <option>按创建时间排序</option>
+                        <option>按修改时间排序</option>
+                        <option>按报表名称排序</option>
+                    </select>
+                    <div class="form-group">
+                        <input type="text" class="form-control text-input" placeholder="按报表名称搜索">
+                    </div>
+                    <button class="btn btn-info">搜索</button>
+                </form>
+            </div>
+        </div>
+        <div class="report-list-body">
+            <ul class="report-list">
+                <li ng-repeat="i in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]">
+                    <div class="report-list-item">
+                        <div class="item-title">
+                            <span>未命名报表{{i}}</span>
+                        </div>
+                        <div class="item-actions">
+                            <span class="item-action">
+                                <i class="fa fa-pencil"></i>修改
+                            </span>
+                            <span class="item-action">
+                                <i class="fa fa-eye"></i>查看
+                            </span>
+                            <span class="item-action">
+                                <i class="fa fa-external-link"></i>导出
+                            </span>
+                            <span class="item-action">
+                                <i class="fa fa-files-o"></i>复制
+                            </span>
+                            <span class="item-action red">
+                                <i class="fa fa-trash"></i>删除
+                            </span>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

@@ -19,7 +19,7 @@ class SidebarService {
 
     expand() {
         collapsed = false;
-        $('.collaborate-sidebar').show()
+        $('.collaborate-sidebar').show();
     }
 
     collapse() {

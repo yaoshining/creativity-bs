@@ -96,6 +96,7 @@ class ProjectsController {
                 groupMap.set(p.group, [p]);
             }
         });
+
         for(let it = groupMap.entries(), entry = it.next();
             !entry.done;entry = it.next()) {
             if(angular.isArray(entry.value)){
@@ -106,9 +107,10 @@ class ProjectsController {
                     group: group,
                     projects: entry.value[1]
                 };
-                setTimeout(() => {
-                    group.name = 'group1';
-                }, 1000);
+                // setTimeout(() => {
+                //     group.name = 'group1';
+                // }, 1000);
+                group.name = 'group1';
                 if(entry.value[0]){
                     groups.grouped.push(groupItem);
                 } else {

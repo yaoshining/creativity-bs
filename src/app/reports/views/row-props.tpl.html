@@ -1,0 +1,23 @@
+<div class="row-props">
+    <div class="content-title">
+        <span>行</span>
+    </div>
+    <div class="content-body">
+        <div class="prop-group">
+            <h1 class="square-blue">样式</h1>
+            <div class="form-group" ng-init="selected = $designer.selectedItem.cols.length">
+                <label class="prop-label col-sm-4" for="columnsSel">列数</label>
+                <div class="prop-control col-sm-8">
+                    <select class="prop-select" id="columnsSel" ng-change="$designer.selectedItem.changeColsTo(selected)" ng-model="selected" ng-options="i for i in [1,2,3,4,6]">
+
+                    </select>
+                </div>
+            </div>
+            <!--<div ng-init="selected = $designer.selectedItem.cols.length">-->
+                <!--<select ng-change="$designer.selectedItem.changeColsTo(selected)" ng-model="selected" ng-options="i for i in [1,2,3,4,6]">-->
+
+                <!--</select>-->
+            <!--</div>-->
+        </div>
+    </div>
+</div>

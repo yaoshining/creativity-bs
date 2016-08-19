@@ -1,0 +1,71 @@
+<div class="designer-menu assistant" ng-class="{opened: sidemenu.opened}">
+    <div class="menu-inner">
+        <div class="menu-title">
+            <ul class="nav-tabs">
+                <li ng-class="{'active': sidemenu.activeTab.id === tab.id}" ng-repeat="tab in sidemenu.tabs track by tab.id">
+                    <a href ng-click="sidemenu.changeTab(tab)">
+                        {{tab.title}}
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="menu-content">
+            <div class="nav-content">
+                <div ng-include="sidemenu.activeTab.view.templateUrl"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="designer-content">
+    <div class="designer-topbar assistant">
+        <a class="label label-primary">
+            <i class="fa fa-eye"></i>
+            预览
+        </a>
+        <a class="label label-success">
+            <i class="fa fa-save"></i>
+            保存
+        </a>
+        <a href class="pull-right" ng-click="sidemenu.toggle($event)">
+            <span class="menu-button"></span>
+        </a>
+    </div>
+    <div class="report-wrapper" yao-scrollbar>
+        <div class="report-header">
+            <h1>
+                <span yao-editable="$designer.report.title"></span>
+            </h1>
+            <h3 yao-editable="$designer.report.subtitle"></h3>
+            <span class="export-btn">
+                <button class="btn btn-info">导出</button>
+            </span>
+        </div>
+        <div class="report-body">
+            <div ng-if="$designer.report.blocs.length <= 0" class="empty-prompt assistant" ng-click="$designer.addBloc()">
+                <h3>没有组件!</h3>
+                <p>
+                    此处是报表设计的预览界面，当前还没有任何可用于预览的组件，点击添加组件。
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="widget-selector">
+        <ul class="widget-shortcut-list">
+            <li class="active">
+                <span class="shortcut-icon barchart-icon"></span>
+            </li>
+            <li>
+                <span class="shortcut-icon linechart-icon"></span>
+            </li>
+            <li>
+                <span class="shortcut-icon piechart-icon"></span>
+            </li>
+            <li>
+                <span class="shortcut-icon table-icon"></span>
+            </li>
+            <li>
+                <span class="shortcut-icon plus-icon"></span>
+            </li>
+        </ul>
+    </div>
+</div>

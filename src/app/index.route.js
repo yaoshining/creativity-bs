@@ -63,6 +63,13 @@ function routerConfig ($stateProvider, $urlRouterProvider) {
       }).state('collaborate.project', {
         url: '/project/:projectId',
         templateUrl: 'app/collaborate/views/project.tpl.html'
+      }).state('collaborate.reports', {
+        url: '/reports',
+        templateUrl: 'app/collaborate/views/reports.tpl.html'
+      }).state('collaborate.reports.add', {
+        url: '/add',
+        templateUrl: 'app/reports/views/add.tpl.html',
+        controller: 'ReportDesignerController'
       }).state('cnigc',{
         url: '/cnigc',
         templateUrl: 'app/cnigc/views/cnigc.tpl.html',
@@ -81,7 +88,6 @@ function routerConfig ($stateProvider, $urlRouterProvider) {
         url: '/companies/:categoryId',
         templateUrl: 'app/cnigc/views/companies.tpl.html'
       });
-
   $urlRouterProvider.otherwise('/');
 }
 

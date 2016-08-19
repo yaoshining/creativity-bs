@@ -4,7 +4,7 @@
         <div class="sidebar-inner scrollable">
             <div class="sidebar-nav">
                 <ul>
-                    <li class="nav-item" ui-sref-active-eq="active" ng-repeat="nav in navs">
+                    <li class="nav-item" ui-sref-active-eq="{{nav.alwaysActive?'':'active'}}" ui-sref-active="{{nav.alwaysActive?'active':''}}" ng-repeat="nav in navs">
                         <a ui-sref="{{nav.sref}}({{nav.params}})">
                             <div class="nav-icon">
                                 <i class="fa fa-fw" ng-class="nav.iconClass"></i>
