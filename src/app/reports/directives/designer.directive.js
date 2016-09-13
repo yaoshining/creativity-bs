@@ -19,6 +19,8 @@ function ReportDesignerDirectiveFacroty() {
         });
 
         elem.on('contextmenu', () => {
+            designer.widgetSelector.toggle();
+            scope.$digest();
             return false;
         });
     }
@@ -36,7 +38,7 @@ function ReportDesignerDirectiveFacroty() {
 
 class DesignerController {
 
-    constructor($scope, $element) {
+    constructor($scope, $element, yaoFullscreen) {
         'ngInject';
         this.widgetSelector = WidgetSelector.$invoke(this, {$scope, $element});
         this.sidemenu = $scope.sidemenu = SideMenu.$invoke(this, {$scope, $element});
@@ -49,7 +51,16 @@ class DesignerController {
             item.element.addClass('selected');
             this.sidemenu.refresh();
         };
-
+        this.preview = () => {
+            yaoFullscreen.open({
+                templateUrl: 'app/reports/views/preview.tpl.html',
+                controller: PreviewController,
+                controllerAs: '$preview',
+                resolve: {
+                    report: this.report
+                }
+            });
+        };
     }
 
     addBloc() {
@@ -58,5 +69,16 @@ class DesignerController {
     }
 
 }
+
+class PreviewController {
+    constructor($scope, yaoFullscreen, report) {
+        'ngInject';
+        $scope.$report = report;
+        this.close = () => {
+            yaoFullscreen.close();
+        };
+    }
+}
+
 
 export default ReportDesignerDirectiveFacroty;

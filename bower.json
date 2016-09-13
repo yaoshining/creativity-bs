@@ -25,7 +25,8 @@
     "ng-ScrollSpy.js": "~3.2.1",
     "oclazyload": "~1.0.4",
     "quantumui": "*",
-    "toastr": "~2.1.1"
+    "toastr": "~2.1.1",
+    "echarts": "^3.2.3"
   },
   "devDependencies": {
     "angular-mocks": "~1.4.0"
@@ -59,6 +60,11 @@
         "assets/stylesheets/_bootstrap.scss",
         "assets/javascripts/bootstrap.js",
         "assets/fonts/**/*.*"
+      ]
+    },
+    "echarts": {
+      "main": [
+        "dist/echarts.js"
       ]
     }
   }

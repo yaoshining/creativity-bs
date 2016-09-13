@@ -12,7 +12,7 @@ import CngicController from './cnigc/controllers/Cngic.controller';
 import CollaborateController from './collaborate/controllers/collaborate.controller';
 import ProjectsController from './collaborate/controllers/projects.controller';
 import TasksController from './collaborate/controllers/tasks.controller';
-import ReportDesignerController from './reports/controllers/designer.controller';
+import ChartPropsController from './reports/controllers/charts-props.controller';
 import UtilsModule from '../app/components/utils/utils.module.js';
 import GithubContributorService from '../app/components/githubContributor/githubContributor.service';
 import * as creativityCtls from '../app/creativity/controllers/creativity.controller.js';
@@ -22,6 +22,7 @@ import FooterDirective from '../app/components/footer/footer.directive';
 import MalarkeyDirective from '../app/components/malarkey/malarkey.directive';
 import SidebarService from '../app/components/sidebar/sidebar.service';
 import ReportDesignerDiretive from '../app/reports/directives/designer.directive';
+import ReportWidgetDiretive from '../app/reports/directives/widget.directive';
 
 var utilsModule = new UtilsModule(angular);
 
@@ -50,8 +51,9 @@ angular.module('creativity', ['ngAnimate', 'ngCookies', 'ngTouch',
   .controller('ProjectsController', ProjectsController)
   .controller('TasksController', TasksController)
   .controller('CngicController', CngicController)
-  .controller('ReportDesignerController', ReportDesignerController)
+  .controller('ChartPropsController', ChartPropsController)
   .directive('ctNavbar', () => new NavbarDirective())
   .directive('ctFooter', () => new FooterDirective())
   .directive('ctReportDesigner', ReportDesignerDiretive)
+  .directive('ctReportWidget', ReportWidgetDiretive)
   .directive('acmeMalarkey', () => new MalarkeyDirective(malarkey));

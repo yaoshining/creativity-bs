@@ -1,0 +1,41 @@
+<div class="report-preview" yao-scrollbar>
+    <!--<pre>{{$report | json:3}}</pre>-->
+    <div class="report-wrapper">
+        <div class="report-header">
+            <h1>{{$report.title}}</h1>
+            <h3>{{$report.subtitle}}</h3>
+            <span class="export-btn">
+                <button class="btn btn-info">导出</button>
+            </span>
+        </div>
+        <div class="report-body">
+            <div class="report-bloc-wrapper" ng-repeat="bloc in $report.blocs">
+                <div class="report-bloc">
+                    <div class="report-row col-md-{{row.size || 12}}" ng-class="{'no-padding': row.size === 12}" ng-repeat="row in bloc.layout.rows">
+                        <div class="row-content">
+                            <div class="report-col col-xs-{{col.size || 12}}" ng-repeat="col in row.cols">
+                                <div class="col-content">
+                                    <div style="max-height: 400px" ct-report-widget="col.content"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="report-preview-actions">
+    <button ng-click="$preview.close()" class="btn btn-sup btn-material-pink">
+        <i class="fa fa-close"></i>
+        关闭
+    </button>
+    <button ng-click="$preview.close()" class="btn btn-sup btn-primary">
+        <i class="fa fa-print"></i>
+        打印
+    </button>
+    <button ng-click="$preview.close()" class="btn btn-sup btn-success">
+        <i class="fa fa-external-link"></i>
+        导出HTML文本
+    </button>
+</div>

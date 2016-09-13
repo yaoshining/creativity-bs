@@ -35,6 +35,11 @@ class Layout {
         this.rows.push(row);
     }
 
+    toJSON() {
+        let obj = $.extend({}, this);
+        delete obj.container;
+        return obj;
+    }
 }
 
 export default Layout;

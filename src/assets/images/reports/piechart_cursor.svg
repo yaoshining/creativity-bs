@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="30px" height="32px" viewBox="0 0 30 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs>
+        <path d="M13.3440755,16.4704991 L13.3440755,8 L13.3440755,8 C17.4830403,8 21.667497,11.632442 21.667497,16.11338 C21.667497,17.149451 21.4558688,18.0578996 21.1517604,18.8126531 L13.3440755,16.4704991 L13.3440755,16.4704991 L13.3440755,16.4704991 Z M12.3647296,17.3030739 L19.5758997,19.4654602 C18.4666595,21.9402131 15.9871465,23.6671904 13.0991264,23.6671904 C9.17822674,23.6671904 6,20.4886211 6,16.568046 C6,12.909315 8.9517592,9.82511921 12.3647296,9.46877543 L12.3647296,17.3030739 L12.3647296,17.3030739 L12.3647296,17.3030739 Z" id="path-1"></path>
+        <filter x="-50%" y="-50%" width="200%" height="200%" filterUnits="objectBoundingBox" id="filter-2">
+            <feMorphology radius="1" operator="dilate" in="SourceAlpha" result="shadowSpreadOuter1"></feMorphology>
+            <feOffset dx="0" dy="0" in="shadowSpreadOuter1" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="1" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 1   0 0 0 0 1   0 0 0 0 1  0 0 0 1 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+        <path d="M2.84540557,0 C3.11608898,0.000201229997 3.38675674,-0.000193777034 3.65762648,0.000201229997 C3.65782026,0.948499081 3.65762648,1.89658899 3.65762648,2.8448943 C4.60594073,2.84547488 5.55449422,2.84467816 6.50283082,2.84528185 L6.50283082,3.65726054 C5.55449422,3.65785603 4.60616432,3.65726054 3.65782026,3.65764809 C3.65721731,4.6059683 3.65800658,5.55423709 3.65741034,6.50256475 L2.84539812,6.50256475 C2.84479517,5.55424454 2.84539812,4.60597576 2.84519689,3.65764809 C1.89687519,3.65706751 0.948537836,3.65785678 0.000201229997,3.65726054 C0,3.38658831 0,3.11595334 0,2.84528185 C0.948537836,2.84467891 1.89687519,2.84547563 2.84519689,2.8448943 C2.84520434,1.89658899 2.84501056,0.948290398 2.84540557,0 L2.84540557,0 Z" id="path-3"></path>
+        <filter x="-50%" y="-50%" width="200%" height="200%" filterUnits="objectBoundingBox" id="filter-4">
+            <feMorphology radius="1" operator="dilate" in="SourceAlpha" result="shadowSpreadOuter1"></feMorphology>
+            <feOffset dx="0" dy="0" in="shadowSpreadOuter1" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="1" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 1   0 0 0 0 1   0 0 0 0 1  0 0 0 1 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="addBloc" transform="translate(-738.000000, -335.000000)">
+            <g id="Group" transform="translate(742.000000, 339.000000)">
+                <g id="Shape">
+                    <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+                    <use fill="#333333" fill-rule="evenodd" xlink:href="#path-1"></use>
+                </g>
+                <g id="Shape">
+                    <use fill="black" fill-opacity="1" filter="url(#filter-4)" xlink:href="#path-3"></use>
+                    <use fill="#333333" fill-rule="evenodd" xlink:href="#path-3"></use>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

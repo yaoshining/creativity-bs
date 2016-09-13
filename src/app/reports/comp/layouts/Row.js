@@ -19,7 +19,14 @@ export default function Row(size, colNum) {
     });
 
     $.extend(this, {
-        addColumn: col => cols.push(col),
+        addColumn: col => {
+            Object.defineProperties(col, {
+                $designer: {
+                    get: () => this.$designer
+                }
+            });
+            cols.push(col);
+        },
         render: () => {
             element.addClass('col-md-' + size).addClass(size === 12?'no-padding':'');
             angular.forEach(cols, (col, i) => content.append(col.render(i)));
@@ -34,6 +41,12 @@ export default function Row(size, colNum) {
             }
             content.empty();
             this.render();
+        },
+        toJSON: () => {
+            let obj = $.extend({}, this);
+            obj.cols = cols;
+            obj.size = size;
+            return obj;
         }
     });
 
@@ -45,9 +58,27 @@ export default function Row(size, colNum) {
         }
     }
 
-    element.on('click', () => {
-        const sidemenu = this.$designer.sidemenu;
-        sidemenu.changeTab(2, 'app/reports/views/row-props.tpl.html');
-        this.$designer.select(this);
+    element.on({
+        'click': e => {
+            if($(e.target).parents().addBack().is('.report-widget')) {
+                return;
+            }
+            const sidemenu = this.$designer.sidemenu;
+            sidemenu.changeTab(2, 'app/reports/views/row-props.tpl.html');
+            this.$designer.select(this);
+        },
+        'mouseover': e => {
+            if($(e.target).parents().addBack().is('.report-widget')) {
+                content.removeClass('hover-intent');
+            } else {
+                content.addClass('hover-intent');
+            }
+        }
+    });
+
+    content.hover(() => {
+        content.addClass('hover-intent');
+    }, () => {
+        content.removeClass('hover-intent');
     });
 }

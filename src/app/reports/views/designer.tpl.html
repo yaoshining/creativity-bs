@@ -18,7 +18,7 @@
 </div>
 <div class="designer-content">
     <div class="designer-topbar assistant">
-        <a class="label label-primary">
+        <a ng-click="$designer.preview()" class="label label-primary">
             <i class="fa fa-eye"></i>
             预览
         </a>
@@ -40,7 +40,7 @@
                 <button class="btn btn-info">导出</button>
             </span>
         </div>
-        <div class="report-body">
+        <div class="report-body" ng-class="[$designer.cursor]">
             <div ng-if="$designer.report.blocs.length <= 0" class="empty-prompt assistant" ng-click="$designer.addBloc()">
                 <h3>没有组件!</h3>
                 <p>
@@ -49,19 +49,10 @@
             </div>
         </div>
     </div>
-    <div class="widget-selector">
+    <div class="widget-selector" ng-show="$designer.widgetSelector.enable">
         <ul class="widget-shortcut-list">
-            <li class="active">
-                <span class="shortcut-icon barchart-icon"></span>
-            </li>
-            <li>
-                <span class="shortcut-icon linechart-icon"></span>
-            </li>
-            <li>
-                <span class="shortcut-icon piechart-icon"></span>
-            </li>
-            <li>
-                <span class="shortcut-icon table-icon"></span>
+            <li ng-click="$designer.widgetSelector.select(widget)" ng-class="{'active': $designer.widgetSelector.selectedWidget === widget}" ng-repeat="widget in $designer.widgetSelector.widgets">
+                <span class="shortcut-icon {{widget.name}}-icon"></span>
             </li>
             <li>
                 <span class="shortcut-icon plus-icon"></span>

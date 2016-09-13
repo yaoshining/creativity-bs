@@ -1,9 +1,10 @@
-function runBlock ($log, $rootScope, $loading, $state, $compile, $injector) {
+function runBlock ($log, $rootScope, $loading, $state, $compile, $injector, yaoGuid) {
   'ngInject';
   window.$compile = $compile;
   Function.prototype.$invoke = function(self, locals) {
     return $injector.invoke(this, self, locals);
   };
+  window.guid = yaoGuid;
   // $rootScope.loading = new $loading({
   //   showSpinner: false,
   //   busyText: '',

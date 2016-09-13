@@ -1,0 +1,21 @@
+<div class="chart-props" ng-controller="ChartPropsController">
+    <div class="content-title">
+        <span>{{$chart.title}}</span>
+    </div>
+    <div class="content-body">
+        <div class="prop-group">
+            <h1 class="square-blue">设置</h1>
+            <div class="form-group">
+                <label class="prop-label col-sm-4" for="chartTitle">标题</label>
+                <div class="prop-control col-sm-8">
+                    <input class="prop-input" ng-model="config.title" id="chartTitle" />
+                </div>
+            </div>
+            <!--<div ng-init="selected = $designer.selectedItem.cols.length">-->
+            <!--<select ng-change="$designer.selectedItem.changeColsTo(selected)" ng-model="selected" ng-options="i for i in [1,2,3,4,6]">-->
+
+            <!--</select>-->
+            <!--</div>-->
+        </div>
+    </div>
+</div>
