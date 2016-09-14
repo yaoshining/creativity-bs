@@ -50,6 +50,18 @@ function renderChart(elem, widget, $http) {
         $(window).on('resize', () => {
             chart.resize();
         });
+
+        if(matchMedia) {
+
+            matchMedia('screen').addListener(() => {
+                chart.resize();
+            });
+
+            matchMedia('print').addListener(() => {
+                chart.resize();
+            });
+        }
+
     });
 }
 

@@ -464,6 +464,11 @@
     }
 
   }
+
+  &.print-a4 {
+    width: 210mm;
+  }
+
 }
 
 
@@ -600,6 +605,7 @@
   .report-col {
     padding-left: 7.5px;
     padding-right: 7.5px;
+    display: inline-block;
     &:first-child {
       padding-left: 0;
     }
@@ -802,4 +808,30 @@
   .btn {
     margin: 0;
   }
+}
+
+@media print {
+  body * {
+    visibility: hidden;
+    float: none !important;
+  }
+  .report-preview {
+    .report-wrapper {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: #ffffff;
+      //page-break-after: always;
+      &, & * {
+        visibility: visible;
+      }
+    }
+  }
+
+  @page {
+    size: A4;
+    margin: 0;
+  }
+
 }

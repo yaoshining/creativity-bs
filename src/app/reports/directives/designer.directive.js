@@ -71,12 +71,30 @@ class DesignerController {
 }
 
 class PreviewController {
-    constructor($scope, yaoFullscreen, report) {
+    constructor($scope, yaoFullscreen, report, $element) {
         'ngInject';
         $scope.$report = report;
         this.close = () => {
             yaoFullscreen.close();
         };
+
+        this.exportHTML = () => angular.download($element.find('.report-wrapper')[0]);
+
+        this.print = () => {
+            const reportWrapper = $element.find('.report-wrapper');
+            reportWrapper.addClass('print-a4');
+            $(window).resize();
+            setTimeout(() => print(), 100);
+        };
+
+        if(matchMedia) {
+            matchMedia('print').addListener(mql => {
+                const reportWrapper = $element.find('.report-wrapper');
+                if(!mql.matches) {
+                    reportWrapper.removeClass('print-a4');
+                }
+            });
+        }
     }
 }
 
