@@ -1,0 +1,27 @@
+<div class="chart-props" ng-controller="TablePropsController">
+    <div class="content-title">
+        <span>{{$table.title}}</span>
+    </div>
+    <div class="content-body">
+        <div class="prop-group">
+            <h1 class="square-blue">设置</h1>
+            <div class="form-group">
+                <label class="prop-label col-sm-4" for="tableTitle">标题</label>
+                <div class="prop-control col-sm-8">
+                    <input class="prop-input" ng-model="config.title" id="tableTitle" />
+                </div>
+            </div>
+        </div>
+        <div class="prop-group">
+            <h1 class="square-blue">表头属性</h1>
+            <div class="form-group">
+                <div class="prop-control col-sm-12">
+                    <label ng-repeat="field in fields">
+                        <input type="checkbox" ng-model="field.$checked" ng-change="onFieldStatusChange(field)" />
+                        {{field.dataSrcItemLabel}}
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

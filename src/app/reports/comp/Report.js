@@ -10,7 +10,9 @@ function Report($scope, $element) {
             $.extend(this, {
                 title: '未命名报表',
                 subtitle: '关于此报表的详细说明',
-                blocs: []
+                blocs: [],
+                widgets: [],
+                getWidget: id => _.find(this.widgets, {id})
             });
             Object.defineProperties(this, {
                 $scope: {

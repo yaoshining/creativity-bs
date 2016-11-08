@@ -1,24 +1,27 @@
-<div class="row-props">
+<div class="row-props" ng-controller="DatasourcePropsController">
     <div class="content-title">
         <span>数据</span>
     </div>
     <div class="content-body">
         <div class="prop-group">
             <h1 class="square-blue">属性</h1>
-            <div class="form-group" ng-init="selected = $designer.selectedItem.cols.length">
+            <div class="form-group">
                 <label class="prop-label col-sm-4" for="dataSource">数据来源</label>
                 <div class="prop-control col-sm-8">
-                    <select class="prop-select" id="dataSource" ng-change="$designer.selectedItem.changeColsTo(selected)" ng-model="selected" ng-options="i for i in [1,2,3,4,6]">
-
+                    <select class="prop-select" id="dataSource" ng-change="onDataSourceChange()" ng-model="report.dataSource" ng-options="i.name for i in dataSources track by i.id">
+                        <option value="">-- 选择数据源 --</option>
                     </select>
                 </div>
             </div>
-            <div class="form-group" ng-init="selected = $designer.selectedItem.cols.length">
-                <label class="prop-label col-sm-4" for="matchingRule">匹配规则</label>
-                <div class="prop-control col-sm-8">
-                    <select class="prop-select" id="matchingRule" ng-change="$designer.selectedItem.changeColsTo(selected)" ng-model="selected" ng-options="i for i in [1,2,3,4,6]">
-
-                    </select>
+        </div>
+        <div class="prop-group">
+            <h1 class="square-pink">可查询字段</h1>
+            <div class="form-group">
+                <div class="prop-control col-sm-12">
+                    <label ng-repeat="field in fields">
+                        <input type="checkbox" ng-model="field.$checked" ng-change="onFilterFieldStatusChange(field)" />
+                        {{field.dataSrcItemLabel}}
+                    </label>
                 </div>
             </div>
         </div>

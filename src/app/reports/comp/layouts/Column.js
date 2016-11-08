@@ -30,13 +30,18 @@ export default function Column(size) {
     content.on('click', () => {
         const widgetSelector = this.$designer.widgetSelector;
         if(widgetSelector.enable) {
-            this.content = new widgetSelector.selectedWidget();
-            Object.defineProperties(this.content, {
+            const widget = new widgetSelector.selectedWidget();
+            this.$designer.report.widgets.push(widget);
+            widget.report = this.$designer.report;
+            this.content = {
+                id: widget.id
+            };
+            Object.defineProperties(widget, {
                 $designer: {
                     get: ()=> this.$designer
                 }
             });
-            content.html(this.content.render());
+            content.html(widget.render());
         }
     });
 }

@@ -13,6 +13,8 @@ import CollaborateController from './collaborate/controllers/collaborate.control
 import ProjectsController from './collaborate/controllers/projects.controller';
 import TasksController from './collaborate/controllers/tasks.controller';
 import ChartPropsController from './reports/controllers/charts-props.controller';
+import TablePropsController from './reports/controllers/table-props.controller';
+import DatasourcePropsController from './reports/controllers/datasource-props.controller';
 import UtilsModule from '../app/components/utils/utils.module.js';
 import GithubContributorService from '../app/components/githubContributor/githubContributor.service';
 import * as creativityCtls from '../app/creativity/controllers/creativity.controller.js';
@@ -21,6 +23,7 @@ import NavbarDirective from '../app/components/navbar/navbar.directive';
 import FooterDirective from '../app/components/footer/footer.directive';
 import MalarkeyDirective from '../app/components/malarkey/malarkey.directive';
 import SidebarService from '../app/components/sidebar/sidebar.service';
+import {ReportDatasourceFactory} from '../app/reports/services/datasource.service';
 import ReportDesignerDiretive from '../app/reports/directives/designer.directive';
 import ReportWidgetDiretive from '../app/reports/directives/widget.directive';
 
@@ -29,7 +32,7 @@ var utilsModule = new UtilsModule(angular);
 angular.module('creativity', ['ngAnimate', 'ngCookies', 'ngTouch',
   'ngSanitize', 'ngResource', 'ui.router','oc.lazyLoad','ngQuantum',
   'frSlidescroll','snapscroll', 'angular-parallax','angular-yao-utils',
-  'angular-loading-bar','ngScrollSpy','ui.tree',utilsModule.name])
+  'angular-loading-bar','ngScrollSpy', 'AngularPrint','ebp-ui' ,'ui.tree',utilsModule.name])
   .constant('malarkey', malarkey)
   .constant('toastr', toastr)
   .constant('moment', moment)
@@ -41,6 +44,7 @@ angular.module('creativity', ['ngAnimate', 'ngCookies', 'ngTouch',
   .service('githubContributor', GithubContributorService)
   .service('webDevTec', WebDevTecService)
   .service('sidebarService', SidebarService)
+  .factory('reportDatasourceService', ReportDatasourceFactory)
   .controller('MainController', MainController)
   .controller('HomeController', HomeController)
   .controller('ProjectNavController', creativityCtls.ProjectNavController)
@@ -52,6 +56,8 @@ angular.module('creativity', ['ngAnimate', 'ngCookies', 'ngTouch',
   .controller('TasksController', TasksController)
   .controller('CngicController', CngicController)
   .controller('ChartPropsController', ChartPropsController)
+  .controller('TablePropsController', TablePropsController)
+  .controller('DatasourcePropsController', DatasourcePropsController)
   .directive('ctNavbar', () => new NavbarDirective())
   .directive('ctFooter', () => new FooterDirective())
   .directive('ctReportDesigner', ReportDesignerDiretive)

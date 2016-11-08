@@ -1,5 +1,5 @@
 <div class="report-preview" yao-scrollbar>
-    <!--<pre>{{$report | json:3}}</pre>-->
+    <pre>{{$report | json:3}}</pre>
     <div class="report-wrapper">
         <div class="report-header">
             <h1>{{$report.title}}</h1>
@@ -8,6 +8,24 @@
                 <button class="btn btn-info">导出</button>
             </span>
         </div>
+        <form class="report-filter-form form-horizontal" ng-if="$report.filterFields.length > 0">
+            <div class="col-md-6" ng-repeat="field in $report.filterFields">
+                <div class="form-group">
+                    <label for="field-input-{{field.seqId}}" class="col-sm-3 control-label">
+                        {{field.dataSrcItemLabel}}:
+                    </label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" id="field-input-{{field.seqId}}" ng-if="field.dataSrcItemType === 'text'">
+                        <select class="form-control" id="field-input-{{field.seqId}}" ng-if="field.dataSrcItemType === 'select'">
+                            <option>选项1</option>
+                            <option>选项2</option>
+                            <option>选项3</option>
+                            <option>选项4</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </form>
         <div class="report-body">
             <div class="report-bloc-wrapper" ng-repeat="bloc in $report.blocs">
                 <div class="report-bloc">
@@ -15,7 +33,7 @@
                         <div class="row-content">
                             <div class="report-col col-xs-{{col.size || 12}}" ng-repeat="col in row.cols">
                                 <div class="col-content">
-                                    <div style="max-height: 400px" ct-report-widget="col.content"></div>
+                                    <div style="max-height: 400px" ct-report-widget="$report.getWidget(col.content.id)"></div>
                                 </div>
                             </div>
                         </div>

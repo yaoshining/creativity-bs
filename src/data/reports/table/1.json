@@ -1,0 +1,33 @@
+[{
+  "projectName": "I型无人机",
+  "totalRevenue": 5000,
+  "amountReceivable": 3000,
+  "paidInAmount": 2500,
+  "grossExpenditure": 4000,
+  "amountPayable": 2500,
+  "payAmount": 2300
+}, {
+  "projectName": "XX项目",
+  "totalRevenue": 5000,
+  "amountReceivable": 3000,
+  "paidInAmount": 2500,
+  "grossExpenditure": 4000,
+  "amountPayable": 2500,
+  "payAmount": 2300
+}, {
+  "projectName": "XXX项目",
+  "totalRevenue": 5000,
+  "amountReceivable": 3000,
+  "paidInAmount": 2500,
+  "grossExpenditure": 4000,
+  "amountPayable": 2500,
+  "payAmount": 2300
+}, {
+  "projectName": "XXX1项目",
+  "totalRevenue": 5000,
+  "amountReceivable": 3000,
+  "paidInAmount": 2500,
+  "grossExpenditure": 4000,
+  "amountPayable": 2500,
+  "payAmount": 2300
+}]

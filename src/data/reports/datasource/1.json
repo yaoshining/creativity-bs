@@ -1,0 +1,98 @@
+[
+  {
+    "seqId": 44,
+    "dataSrcSeqId": 1,
+    "dataSrcItemName": "projectName",
+    "dataSrcItemLabel": "项目名称",
+    "dataSrcItemType": "text",
+    "sortNo": 0
+  },
+  {
+    "seqId": 45,
+    "dataSrcSeqId": 1,
+    "dataSrcItemName": "projectCode",
+    "dataSrcItemLabel": "项目编号",
+    "dataSrcItemType": "text",
+    "sortNo": 1
+  },
+  {
+    "seqId": 46,
+    "dataSrcSeqId": 1,
+    "dataSrcItemName": "projectPermitNo",
+    "dataSrcItemLabel": "项目批文号",
+    "dataSrcItemType": "text",
+    "sortNo": 2
+  },
+  {
+    "seqId": 47,
+    "dataSrcSeqId": 1,
+    "dataSrcItemName": "projectType",
+    "dataSrcItemLabel": "项目类型",
+    "dataSrcItemType": "select",
+    "sortNo": 3
+  },
+  {
+    "seqId": 48,
+    "dataSrcSeqId": 1,
+    "dataSrcItemName": "projectSource",
+    "dataSrcItemLabel": "项目来源",
+    "dataSrcItemType": "select",
+    "sortNo": 4
+  },
+  {
+    "seqId": 49,
+    "dataSrcSeqId": 1,
+    "dataSrcItemName": "projectDepartments",
+    "dataSrcItemLabel": "分管部门",
+    "dataSrcItemType": "select",
+    "sortNo": 5
+  },
+  {
+    "seqId": 50,
+    "dataSrcSeqId": 1,
+    "dataSrcItemName": "totalRevenue",
+    "dataSrcItemLabel": "收入合同总额",
+    "dataSrcItemType": "number",
+    "sortNo": 6
+  },
+  {
+    "seqId": 51,
+    "dataSrcSeqId": 1,
+    "dataSrcItemName": "amountReceivable",
+    "dataSrcItemLabel": "应收金额",
+    "dataSrcItemType": "number",
+    "sortNo": 7
+  },
+  {
+    "seqId": 52,
+    "dataSrcSeqId": 1,
+    "dataSrcItemName": "paidInAmount",
+    "dataSrcItemLabel": "实收金额",
+    "dataSrcItemType": "number",
+    "sortNo": 7
+  },
+  {
+    "seqId": 53,
+    "dataSrcSeqId": 1,
+    "dataSrcItemName": "grossExpenditure",
+    "dataSrcItemLabel": "支出合同总额",
+    "dataSrcItemType": "number",
+    "sortNo": 8
+  },
+  {
+    "seqId": 54,
+    "dataSrcSeqId": 1,
+    "dataSrcItemName": "amountPayable",
+    "dataSrcItemLabel": "应付金额",
+    "dataSrcItemType": "number",
+    "sortNo": 9
+  },
+  {
+    "seqId": 55,
+    "dataSrcSeqId": 1,
+    "dataSrcItemName": "payAmount",
+    "dataSrcItemLabel": "实付金额",
+    "dataSrcItemType": "number",
+    "sortNo": 10
+  }
+]

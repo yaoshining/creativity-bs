@@ -26,7 +26,10 @@
     "oclazyload": "~1.0.4",
     "quantumui": "*",
     "toastr": "~2.1.1",
-    "echarts": "^3.2.3"
+    "echarts": "^3.2.3",
+    "angularPrint": "angular-print#^0.3.8",
+    "lodash": "^4.16.6",
+    "ebp-ui": "*"
   },
   "devDependencies": {
     "angular-mocks": "~1.4.0"

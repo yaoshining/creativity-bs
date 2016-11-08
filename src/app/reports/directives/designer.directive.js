@@ -81,20 +81,21 @@ class PreviewController {
         this.exportHTML = () => angular.download($element.find('.report-wrapper')[0]);
 
         this.print = () => {
-            const reportWrapper = $element.find('.report-wrapper');
-            reportWrapper.addClass('print-a4');
-            $(window).resize();
-            setTimeout(() => print(), 100);
+            // const reportWrapper = $element.find('.report-wrapper');
+            // reportWrapper.addClass('print-a4');
+            // $(window).resize();
+            // setTimeout(() => print(), 100);
+            print();
         };
 
-        if(matchMedia) {
-            matchMedia('print').addListener(mql => {
-                const reportWrapper = $element.find('.report-wrapper');
-                if(!mql.matches) {
-                    reportWrapper.removeClass('print-a4');
-                }
-            });
-        }
+        // if(matchMedia) {
+        //     matchMedia('print').addListener(mql => {
+        //         const reportWrapper = $element.find('.report-wrapper');
+        //         if(!mql.matches) {
+        //             reportWrapper.removeClass('print-a4');
+        //         }
+        //     });
+        // }
     }
 }
 

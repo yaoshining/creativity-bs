@@ -9,9 +9,14 @@ class Widget {
         this.name = null;
         this.title = '组件';
         let element = $('<div>').addClass('report-widget');
+        let _report = null;
         Object.defineProperties(this, {
             element: {
                 get: () => element
+            },
+            report: {
+                set: report => _report = report,
+                get: () => _report
             }
         });
     }
@@ -19,14 +24,14 @@ class Widget {
     render() {
         this.element.attr('title', this.title);
         this.element.append($('<div>').addClass(`widget-${this.name}`));
-        this.removeButton = $('<div>').addClass('widget-remove-button').on('click', () => {
+        let removeButton = $('<div>').addClass('widget-remove-button').on('click', () => {
             alert(2);
         }).hover(() => {
             this.element.addClass('warning');
         }, () => {
             this.element.removeClass('warning');
         });
-        this.element.append(this.removeButton);
+        this.element.append(removeButton);
         return this.element;
     }
 
