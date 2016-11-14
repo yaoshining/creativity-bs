@@ -69,6 +69,9 @@ function routerConfig ($stateProvider, $urlRouterProvider) {
       }).state('collaborate.reports.add', {
         url: '/add',
         templateUrl: 'app/reports/views/add.tpl.html'
+      }).state('collaborate.reports.edit', {
+        url: '/edit/:reportId',
+        templateUrl: 'app/reports/views/edit.tpl.html'
       }).state('cnigc',{
         url: '/cnigc',
         templateUrl: 'app/cnigc/views/cnigc.tpl.html',

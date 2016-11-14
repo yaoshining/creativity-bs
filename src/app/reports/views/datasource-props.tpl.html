@@ -8,7 +8,7 @@
             <div class="form-group">
                 <label class="prop-label col-sm-4" for="dataSource">数据来源</label>
                 <div class="prop-control col-sm-8">
-                    <select class="prop-select" id="dataSource" ng-change="onDataSourceChange()" ng-model="report.dataSource" ng-options="i.name for i in dataSources track by i.id">
+                    <select class="prop-select" id="dataSource" ng-change="onDataSourceChange(report.dataSource)" ng-model="report.dataSource" ng-options="i.dataSrcName for i in dataSources track by i.seqId">
                         <option value="">-- 选择数据源 --</option>
                     </select>
                 </div>

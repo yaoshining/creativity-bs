@@ -835,24 +835,35 @@
 @media print {
   body * {
     visibility: hidden;
-    //float: none !important;
+    float: none !important;
   }
   .report-preview {
     .report-wrapper {
-      position: fixed;
+      position: absolute;
       top: 0;
       left: 0;
       right: 0;
       background: #ffffff;
-      //page-break-after: always;
       &, & * {
         visibility: visible;
+      }
+
+      canvas {
+        page-break-before: always;
       }
     }
   }
 
+  .report-filter-form {
+    display: none;
+  }
+
+  .yao-fullscreen-wrapper {
+    overflow: visible;
+  }
+
   @page {
-    //size: A4;
+    size: A4;
     margin: 0;
   }
 

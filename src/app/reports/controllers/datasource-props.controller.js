@@ -9,7 +9,7 @@ class DatasourcePropsController {
         $scope.fields = [];
 
         if(report.dataSource) {
-            reportDatasourceService.getFields().then(fields => {
+            reportDatasourceService.getFields(report.dataSource.seqId).then(fields => {
                 $scope.fields = fields;
                 if(angular.isArray(report.filterFields)) {
                     report.filterFields.forEach(f => {
@@ -22,15 +22,16 @@ class DatasourcePropsController {
             });
         }
 
-        $scope.dataSources = [
-            {name: 'hehe', id: 2},
-            {name: '项目合同信息', id: 1}
-        ];
+        $scope.dataSources = [];
 
-        $scope.onDataSourceChange = () => {
+        reportDatasourceService.getDataSources().then(dataSources => {
+            $scope.dataSources = dataSources;
+        });
+
+        $scope.onDataSourceChange = (dataSource) => {
             report.filterFields = [];
             if(report.dataSource) {
-                reportDatasourceService.getFields().then(fields => {
+                reportDatasourceService.getFields(dataSource.seqId).then(fields => {
                     $scope.fields = fields;
                 });
             }
