@@ -16,12 +16,24 @@
         </div>
         <div class="prop-group">
             <h1 class="square-pink">可查询字段</h1>
-            <div class="form-group">
+            <div class="form-group" style="margin: 5px -10px">
                 <div class="prop-control col-sm-12">
-                    <label ng-repeat="field in fields">
-                        <input type="checkbox" ng-model="field.$checked" ng-change="onFilterFieldStatusChange(field)" />
-                        {{field.dataSrcItemLabel}}
-                    </label>
+                    <div class="form-group" style="margin: 5px 0" ng-repeat="field in fields">
+                        <label class="col-sm-4 prop-label">
+                            <input type="checkbox" ng-model="field.$checked" ng-change="onFilterFieldStatusChange(field)" />
+                            {{field.dataSrcItemLabel}}
+                        </label>
+                        <div class="prop-control col-sm-4">
+                            <select class="prop-select" ng-model="field.inputType">
+                                <option value="select">下拉菜单</option>
+                                <option value="text">文本框</option>
+                            </select>
+                        </div>
+                        <div class="prop-control col-sm-4">
+                            <select class="prop-select" ng-model="field.inputOptions" ng-options="i.name for i in selectDataSources" ng-if="field.inputType === 'select'">
+                            </select>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

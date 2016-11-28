@@ -1,6 +1,8 @@
 /**
  * Created by yaoshining on 16/9/6.
  */
+import API from '../API';
+
 class DatasourcePropsController {
     constructor($scope, reportDatasourceService) {
         'ngInject';
@@ -48,6 +50,11 @@ class DatasourcePropsController {
                 });
             }
         };
+
+        $scope.selectDataSources = [
+            {'name':'项目类型', 'url':API.getProjectTypes},
+            {'name':'选择部门','url':API.getDepartments}
+        ];
     }
 }
 

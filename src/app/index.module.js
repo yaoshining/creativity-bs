@@ -25,6 +25,7 @@ import MalarkeyDirective from '../app/components/malarkey/malarkey.directive';
 import SidebarService from '../app/components/sidebar/sidebar.service';
 import {ReportDatasourceFactory} from '../app/reports/services/datasource.service';
 import {ReportServiceFactory} from '../app/reports/services/report.service';
+import {WidgetServiceFactory} from '../app/reports/services/widget.service';
 import ReportDesignerDiretive from '../app/reports/directives/designer.directive';
 import ReportWidgetDiretive from '../app/reports/directives/widget.directive';
 
@@ -47,6 +48,7 @@ angular.module('creativity', ['ngAnimate', 'ngCookies', 'ngTouch',
   .service('sidebarService', SidebarService)
   .factory('reportDatasourceService', ReportDatasourceFactory)
   .factory('reportService', ReportServiceFactory)
+  .factory('reportWidgetService', WidgetServiceFactory)
   .controller('MainController', MainController)
   .controller('HomeController', HomeController)
   .controller('ProjectNavController', creativityCtls.ProjectNavController)

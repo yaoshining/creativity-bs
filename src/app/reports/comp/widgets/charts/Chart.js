@@ -14,7 +14,8 @@ class Chart extends Widget {
             dataSource: {
                 url: '',
                 params: []
-            }
+            },
+            displayFields: []
         };
     }
 

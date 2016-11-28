@@ -1,7 +1,7 @@
 /**
  * Created by yaoshining on 2016/11/7.
  */
-export function renderTable(scope, elem, $compile, widget, $http) {
+export function renderTable(scope, elem, $compile, widget, reportWidgetService) {
     let tableTitle = $('<div>').addClass('report-widget-title').text(widget.config.title);
     let ebpTable = $('<div>', {
         'ebp-table': '$tableView.ebpTable',
@@ -19,18 +19,31 @@ export function renderTable(scope, elem, $compile, widget, $http) {
         widgetSettings
     };
 
-    // const url = '/pms/project/report/getReportData';
-    let url = '/data/reports/table/1.json'; // In cording to widget.report.dataSource object, get the data source url.;
-    $http.get(url, {
-        params: {
-            dataSrcId: 1,
-            widgetId: '4ac50dd7-a273-31fd-b16a-8f86d449ba2c'
+    let params = {
+        dataSrcId: widget.report.seqId,
+        widgetId: widget.id,
+    };
+
+    function fetchTableData(filterParams) {
+        if(!angular.isObject(filterParams)) {
+            filterParams = {};
         }
-    }).then(res => {
-        scope.$tableView.tableData = res.data;
-        elem.append(tableTitle);
-        elem.append($compile(ebpTable)(scope));
-    });
+
+        params.filterParams = filterParams;
+
+        reportWidgetService.getTableData(params).then(data => {
+            if($.isPlainObject(scope.$tableView.ebpTable)) {
+                scope.$tableView.tableData = data;
+                elem.empty().append(tableTitle);
+                elem.empty().append($compile(ebpTable)(scope));
+            } else {
+                scope.$tableView.tableData = data;
+            }
+        });
+
+    }
+
+    fetchTableData();
 
     function getColDefs(widget) {
         let cols = [], config = widget.config;
@@ -46,4 +59,8 @@ export function renderTable(scope, elem, $compile, widget, $http) {
         });
         return {cols};
     }
+
+    scope.$on('ebp.report.refresh', (event, args) => {
+        fetchTableData(args.filterParams);
+    });
 }

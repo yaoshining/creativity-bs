@@ -11,11 +11,17 @@
                     <input class="prop-input" ng-model="config.title" id="chartTitle" />
                 </div>
             </div>
-            <!--<div ng-init="selected = $designer.selectedItem.cols.length">-->
-            <!--<select ng-change="$designer.selectedItem.changeColsTo(selected)" ng-model="selected" ng-options="i for i in [1,2,3,4,6]">-->
-
-            <!--</select>-->
-            <!--</div>-->
+        </div>
+        <div class="prop-group">
+            <h1 class="square-pink">统计字段</h1>
+            <div class="form-group">
+                <div class="prop-control col-sm-12">
+                    <label ng-repeat="field in fields">
+                        <input type="checkbox" ng-model="field.$checked" ng-change="onFieldStatusChange(field)" />
+                        {{field.dataSrcItemLabel}}
+                    </label>
+                </div>
+            </div>
         </div>
     </div>
 </div>

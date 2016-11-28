@@ -1,0 +1,168 @@
+[
+  {
+    "bizType": "PRJDEPT",
+    "code": "201",
+    "nodes": [],
+    "sortIndex": null,
+    "orgCode": "123123",
+    "name": "201所",
+    "remark": "中国北方车辆研究所",
+    "id": 259,
+    "seqId": 259,
+    "parentId": 0
+  },
+  {
+    "bizType": "PRJDEPT",
+    "code": "202所",
+    "nodes": [],
+    "sortIndex": null,
+    "orgCode": "22222222222",
+    "name": "202所",
+    "remark": "西北机电工程研究所",
+    "id": 260,
+    "seqId": 260,
+    "parentId": 0
+  },
+  {
+    "bizType": "PRJDEPT",
+    "code": "203所",
+    "nodes": [],
+    "sortIndex": null,
+    "orgCode": null,
+    "name": "203所",
+    "remark": "西北现代控制技术研究所",
+    "id": 261,
+    "seqId": 261,
+    "parentId": 0
+  },
+  {
+    "bizType": "PRJDEPT",
+    "code": "204所",
+    "nodes": [],
+    "sortIndex": null,
+    "orgCode": null,
+    "name": "204所",
+    "remark": "西安近现代化学研究所",
+    "id": 268,
+    "seqId": 268,
+    "parentId": 0
+  },
+  {
+    "bizType": "PRJDEPT",
+    "code": "30",
+    "nodes": [
+      {
+        "bizType": "PRJDEPT",
+        "code": "205所",
+        "nodes": [],
+        "sortIndex": null,
+        "orgCode": null,
+        "name": "205所",
+        "remark": "西安应用光学研究所",
+        "seqId": 272,
+        "parentId": 269
+      },
+      {
+        "bizType": "PRJDEPT",
+        "code": "248厂",
+        "nodes": [],
+        "sortIndex": null,
+        "orgCode": null,
+        "name": "248厂",
+        "remark": "西光厂",
+        "seqId": 274,
+        "parentId": 269
+      }
+    ],
+    "sortIndex": null,
+    "orgCode": null,
+    "name": "光电子集团",
+    "remark": "光电子集团",
+    "id": 269,
+    "seqId": 269,
+    "parentId": 0
+  },
+  {
+    "bizType": "PRJDEPT",
+    "code": "617厂",
+    "nodes": [],
+    "sortIndex": null,
+    "orgCode": null,
+    "name": "617厂",
+    "remark": "内蒙古第一机械制造集团有限公司",
+    "id": 262,
+    "seqId": 262,
+    "parentId": 0
+  },
+  {
+    "bizType": "PRJDEPT",
+    "code": "627厂",
+    "nodes": [],
+    "sortIndex": null,
+    "orgCode": null,
+    "name": "627厂",
+    "remark": "湖南江麓机械集团有限公司",
+    "id": 263,
+    "seqId": 263,
+    "parentId": 0
+  },
+  {
+    "bizType": "PRJDEPT",
+    "code": "844厂",
+    "nodes": [],
+    "sortIndex": null,
+    "orgCode": null,
+    "name": "844厂",
+    "remark": "西安东方集团有限公司",
+    "id": 267,
+    "seqId": 267,
+    "parentId": 0
+  },
+  {
+    "bizType": "PRJDEPT",
+    "code": "BKY",
+    "nodes": [
+      {
+        "bizType": "PRJDEPT",
+        "code": "201-1",
+        "nodes": [],
+        "sortIndex": null,
+        "orgCode": null,
+        "name": "201所",
+        "remark": "1",
+        "seqId": 273,
+        "parentId": 271
+      },
+      {
+        "bizType": "PRJDEPT",
+        "code": "202-1",
+        "nodes": [],
+        "sortIndex": null,
+        "orgCode": null,
+        "name": "202所",
+        "remark": "21",
+        "seqId": 275,
+        "parentId": 271
+      }
+    ],
+    "sortIndex": null,
+    "orgCode": null,
+    "name": "中国兵器科学研究院",
+    "remark": "兵科院",
+    "id": 271,
+    "seqId": 271,
+    "parentId": 0
+  },
+  {
+    "bizType": "PRJDEPT",
+    "code": "DAG",
+    "nodes": [],
+    "sortIndex": null,
+    "orgCode": null,
+    "name": "档案馆",
+    "remark": "1",
+    "id": 276,
+    "seqId": 276,
+    "parentId": 0
+  }
+]

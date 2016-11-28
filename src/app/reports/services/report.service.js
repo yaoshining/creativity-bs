@@ -1,12 +1,13 @@
 /**
  * Created by yaoshining on 2016/11/11.
  */
+import API from '../API';
+
 export function ReportServiceFactory($http, $q) {
 
     function save(report) {
         let deferred = $q.defer();
-        const url = '/plt/reportTpl/addReportTpl';
-        // const url = '/data/reports/datasource/all.json';
+        const url = API.saveReportDef;
         $http.post(url, {
             reportName: report.title,
             reportTypeSeqId: 123,

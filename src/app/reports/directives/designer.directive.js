@@ -74,7 +74,7 @@ class DesignerController {
 }
 
 class PreviewController {
-    constructor($scope, yaoFullscreen, report, $element) {
+    constructor($scope, yaoFullscreen, report, $element, $resource) {
         'ngInject';
         $scope.$report = report;
         this.close = () => {
@@ -91,14 +91,27 @@ class PreviewController {
             print();
         };
 
-        // if(matchMedia) {
-        //     matchMedia('print').addListener(mql => {
-        //         const reportWrapper = $element.find('.report-wrapper');
-        //         if(!mql.matches) {
-        //             reportWrapper.removeClass('print-a4');
-        //         }
-        //     });
-        // }
+        $scope.filterParams = {};
+
+        $scope.refreshReport = () => {
+            $scope.$broadcast('ebp.report.refresh', {
+                filterParams: $scope.filterParams
+            });
+        };
+
+        let optionData = {
+
+        };
+
+        if(angular.isArray(report.filterFields)) {
+            report.filterFields.filter(f => f.inputType === 'select').forEach(field => {
+                const url = field.inputOptions.url;
+                optionData[field.seqId] = $resource(url, {}).query();
+            });
+        }
+
+        $scope.getOptionData = id => optionData[id];
+
     }
 }
 
