@@ -38,7 +38,7 @@ function ReportDesignerDirectiveFacroty() {
 
 class DesignerController {
 
-    constructor($scope, $element, yaoFullscreen, reportService) {
+    constructor($scope, $element, yaoFullscreen, reportService, $state) {
         'ngInject';
         this.widgetSelector = WidgetSelector.$invoke(this, {$scope, $element});
         this.sidemenu = $scope.sidemenu = SideMenu.$invoke(this, {$scope, $element});
@@ -62,7 +62,9 @@ class DesignerController {
             });
         };
         this.save = () => {
-            reportService.save(this.report);
+            reportService.save(this.report).then(() => {
+                $state.go('collaborate.reports', {}, {reload: true});
+            });
         };
     }
 
