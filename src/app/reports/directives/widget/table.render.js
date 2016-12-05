@@ -13,6 +13,8 @@ export function renderTable(scope, elem, $compile, widget, reportWidgetService) 
         "colDefs": getColDefs(widget)
     };
 
+    let report = scope.report;
+
     scope.$tableView = {
         tableData: [],
         ebpTable: {},
@@ -20,7 +22,7 @@ export function renderTable(scope, elem, $compile, widget, reportWidgetService) 
     };
 
     let params = {
-        dataSrcId: widget.report.seqId,
+        dataSrcId: report.seqId,
         widgetId: widget.id,
     };
 

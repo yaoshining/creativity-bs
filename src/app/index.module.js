@@ -11,9 +11,11 @@ import ResourceRepoController from './resources/controllers/ResourceRepo.control
 import CngicController from './cnigc/controllers/Cngic.controller';
 import CollaborateController from './collaborate/controllers/collaborate.controller';
 import ProjectsController from './collaborate/controllers/projects.controller';
+import ReportsController from './collaborate/controllers/reports.controller';
 import TasksController from './collaborate/controllers/tasks.controller';
 import ChartPropsController from './reports/controllers/charts-props.controller';
 import TablePropsController from './reports/controllers/table-props.controller';
+import ReportPreviewController from './reports/controllers/preview.controller';
 import DatasourcePropsController from './reports/controllers/datasource-props.controller';
 import UtilsModule from '../app/components/utils/utils.module.js';
 import GithubContributorService from '../app/components/githubContributor/githubContributor.service';
@@ -57,6 +59,8 @@ angular.module('creativity', ['ngAnimate', 'ngCookies', 'ngTouch',
   .controller('ResourceRepoController', ResourceRepoController)
   .controller('CollaborateController', CollaborateController)
   .controller('ProjectsController', ProjectsController)
+  .controller('ReportsController', ReportsController)
+  .controller('ReportPreviewController', ReportPreviewController)
   .controller('TasksController', TasksController)
   .controller('CngicController', CngicController)
   .controller('ChartPropsController', ChartPropsController)

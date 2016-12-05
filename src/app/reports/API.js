@@ -8,7 +8,9 @@ const API = {
     getFieldsByDataSource: '/plt/dataSource/queryItem',
     saveReportDef: '/plt/reportTpl/addReportTpl',
     getProjectTypes: '/pms/resources/codeitemtree/getTree?t=1479793526596&bizType=PRJTYPE',
-    getDepartments: '/plt/formtpl/getOrgList'
+    getDepartments: '/plt/formtpl/getOrgList',
+    getReportList: '/plt/reportTpl/typebyIdList',
+    getReportGroupList: '/plt/reportType/typeList'
 };
 
 const testAPI = {
@@ -18,7 +20,9 @@ const testAPI = {
     getFieldsByDataSource: '/data/reports/datasource/1.json',
     saveReportDef: '/plt/reportTpl/addReportTpl',
     getProjectTypes: '/data/reports/project/types.json',
-    getDepartments: '/data/reports/department/all.json'
+    getDepartments: '/data/reports/department/all.json',
+    getReportList: '/data/reports/list.json',
+    getReportGroupList: '/data/reports/group/list.json'
 };
 
 export default API;

@@ -65,7 +65,8 @@ function routerConfig ($stateProvider, $urlRouterProvider) {
         templateUrl: 'app/collaborate/views/project.tpl.html'
       }).state('collaborate.reports', {
         url: '/reports',
-        templateUrl: 'app/collaborate/views/reports.tpl.html'
+        templateUrl: 'app/collaborate/views/reports.tpl.html',
+        controller: 'ReportsController'
       }).state('collaborate.reports.add', {
         url: '/add',
         templateUrl: 'app/reports/views/add.tpl.html'

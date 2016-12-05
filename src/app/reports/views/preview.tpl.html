@@ -36,7 +36,7 @@
                         <div class="row-content">
                             <div class="report-col col-xs-{{col.size || 12}}" ng-repeat="col in row.cols">
                                 <div class="col-content">
-                                    <div ct-report-widget="$report.getWidget(col.content.id)"></div>
+                                    <div ct-report-widget="getWidget(col.content.id)" report="$report"></div>
                                 </div>
                             </div>
                         </div>

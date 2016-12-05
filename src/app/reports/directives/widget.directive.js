@@ -26,7 +26,8 @@ function ReportWidgetDirectiveFactory() {
         restrict: 'AE',
         link: linkFunc,
         scope: {
-            widget: '=ctReportWidget'
+            widget: '=ctReportWidget',
+            report: '=report'
         }
     };
 

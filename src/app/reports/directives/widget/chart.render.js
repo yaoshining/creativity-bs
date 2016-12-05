@@ -4,8 +4,12 @@
 export function renderChart(scope, elem, widget, reportWidgetService) {
     'ngInject';
 
+    let report = scope.report;
+
+    console.log(report);
+
     let params = {
-        dataSrcId: widget.report.seqId,
+        dataSrcId: report.seqId,
         widgetId: widget.id,
     };
 

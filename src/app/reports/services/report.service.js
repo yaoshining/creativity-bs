@@ -10,7 +10,7 @@ export function ReportServiceFactory($http, $q) {
         const url = API.saveReportDef;
         $http.post(url, {
             reportName: report.title,
-            reportTypeSeqId: 123,
+            reportTypeSeqId: 1,
             remark: "备注",
             reportDef: JSON.stringify(report)
         }).then(res => {
@@ -22,6 +22,32 @@ export function ReportServiceFactory($http, $q) {
         return deferred.promise;
     }
 
-    return {save};
+    function getReportList(groupId) {
+        let deferred = $q.defer();
+        const url = API.getReportList;
+        $http.get(url, {
+            params: {
+                typeSeqId: groupId
+            }
+        }).then(res => {
+            deferred.resolve(res.data);
+        }, res => {
+            deferred.reject(res);
+        });
+        return deferred.promise;
+    }
+
+    function getGroupList() {
+        let deferred = $q.defer();
+        const url = API.getReportGroupList;
+        $http.get(url).then(res => {
+            deferred.resolve(res.data);
+        }, res => {
+            deferred.reject(res);
+        });
+        return deferred.promise;
+    }
+
+    return {save, getReportList, getGroupList};
 
 }

@@ -1,0 +1,206 @@
+[
+  {
+    "nodes": [
+      {
+        "nodes": [
+          {
+            "nodes": [
+              {
+                "nodes": [],
+                "name": "333",
+                "report": [],
+                "remark": "33",
+                "id": 16,
+                "parentId": 4
+              },
+              {
+                "nodes": [],
+                "name": "333",
+                "report": [],
+                "remark": "33",
+                "id": 17,
+                "parentId": 4
+              },
+              {
+                "nodes": [],
+                "name": "测试",
+                "report": [],
+                "remark": "测试",
+                "id": 21,
+                "parentId": 4
+              }
+            ],
+            "name": "444",
+            "report": [],
+            "remark": "44",
+            "id": 4,
+            "parentId": 2
+          },
+          {
+            "nodes": [
+              {
+                "nodes": [],
+                "name": "111",
+                "report": [],
+                "remark": "11",
+                "id": 18,
+                "parentId": 7
+              }
+            ],
+            "name": "111",
+            "report": [],
+            "remark": "111",
+            "id": 7,
+            "parentId": 2
+          },
+          {
+            "nodes": [],
+            "name": "2222",
+            "report": [],
+            "remark": "222",
+            "id": 10,
+            "parentId": 2
+          },
+          {
+            "nodes": [],
+            "name": "77",
+            "report": [],
+            "remark": "7",
+            "id": 11,
+            "parentId": 2
+          },
+          {
+            "nodes": [],
+            "name": "55",
+            "report": [],
+            "remark": "5",
+            "id": 12,
+            "parentId": 2
+          },
+          {
+            "nodes": [],
+            "name": "333",
+            "report": [],
+            "remark": "333",
+            "id": 13,
+            "parentId": 2
+          },
+          {
+            "nodes": [],
+            "name": "333",
+            "report": [],
+            "remark": "333",
+            "id": 14,
+            "parentId": 2
+          },
+          {
+            "nodes": [],
+            "name": "问问",
+            "report": [],
+            "remark": null,
+            "id": 15,
+            "parentId": 2
+          },
+          {
+            "nodes": [],
+            "name": "3333",
+            "report": [],
+            "remark": "33",
+            "id": 23,
+            "parentId": 2
+          }
+        ],
+        "name": "222",
+        "report": [],
+        "remark": "22",
+        "id": 2,
+        "parentId": 1
+      }
+    ],
+    "name": "未分组",
+    "report": [
+      {
+        "reportName": "未命名报表",
+        "reportTypeSeqId": 1,
+        "remark": "备注",
+        "id": 57
+      },
+      {
+        "reportName": "未命名报表123",
+        "reportTypeSeqId": 1,
+        "remark": "备注",
+        "id": 58
+      }
+    ],
+    "remark": "11",
+    "id": 1,
+    "parentId": 0
+  },
+  {
+    "nodes": [
+      {
+        "nodes": [],
+        "name": "222",
+        "report": [],
+        "remark": "111",
+        "id": 5,
+        "parentId": 3
+      },
+      {
+        "nodes": [],
+        "name": "5",
+        "report": [],
+        "remark": "5",
+        "id": 6,
+        "parentId": 3
+      }
+    ],
+    "name": "333",
+    "report": [],
+    "remark": "33",
+    "id": 3,
+    "parentId": 0
+  },
+  {
+    "nodes": [
+      {
+        "nodes": [
+          {
+            "nodes": [],
+            "name": "11",
+            "report": [],
+            "remark": "1",
+            "id": 20,
+            "parentId": 9
+          }
+        ],
+        "name": "2255",
+        "report": [],
+        "remark": "55",
+        "id": 9,
+        "parentId": 8
+      }
+    ],
+    "name": "222",
+    "report": [],
+    "remark": "333",
+    "id": 8,
+    "parentId": 0
+  },
+  {
+    "nodes": [],
+    "name": "2222",
+    "report": [],
+    "remark": "22",
+    "id": 19,
+    "parentId": 0
+  },
+  {
+    "nodes": [],
+    "name": "11",
+    "report": [],
+    "remark": "1",
+    "id": 22,
+    "parentId": 0
+  }
+]
